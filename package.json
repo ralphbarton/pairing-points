@@ -5,6 +5,7 @@
   "dependencies": {
     "fabric": "^1.7.22",
     "react": "^16.2.0",
+    "react-animation-frame": "^1.0.1",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
