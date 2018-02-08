@@ -2,16 +2,28 @@ import React, { Component } from 'react';
 
 import {fabric}  from 'fabric';
 
+import update from 'immutability-helper';
+
+
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
 const ReactAnimationFrame = require('react-animation-frame');
 
+
+
+var _ = require('lodash');
 
 class Points_App extends Component {
 
     constructor(){
 	super();
 	this.state = {
-	    vSplit: true,
-	    selectedFont: {value: 1}
+	    Pointset: {
+		n: 10,
+		dist: null,
+		points: []
+	    }
 	};
 
 	this.durationMs = 4000;
