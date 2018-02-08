@@ -40,8 +40,8 @@ class XYplane extends React.Component {
 
     onAnimationFrame(time) {
 
-	const progress = Math.round(time / this.durationMs * 10000)/100;
-	const progress2 = progress % 100; //Mod100
+//	const progress = Math.round(time / this.durationMs * 10000)/100;
+//	const progress2 = progress % 100; //Mod100
 //	this.bar.style.width = `${progress2}%`;
 
 	const oldLeft = this.canvas._objects[0].left;
@@ -62,13 +62,21 @@ class XYplane extends React.Component {
     
     render() {
 
+	const W = window.innerWidth;
+	const H = window.innerHeight;
+	const LeftCol_W = 250;
+	const M = 20;
+
+	const canv_W = W - 3*M - LeftCol_W;
+	const canv_H = H - 2*M;
+	
 	return (
 	    <div className="XYplane">
 
 	      <div>
 		<canvas
-		   width="800"
-		   height="600"
+		   width={canv_W}
+		   height={canv_H}
 		   ref={ el => {this.fabricCanvasElement = el;}}
 		  />
 	      </div>

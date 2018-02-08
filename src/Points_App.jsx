@@ -8,9 +8,10 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
  */
 
+import ControlsColumn from './ControlsColumn';
 import XYplane from './XYplane';
 
-var _ = require('lodash');
+//var _ = require('lodash');
 
 class Points_App extends React.Component {
 
@@ -31,12 +32,10 @@ class Points_App extends React.Component {
 	return (
 	    <div className="Points_App">
 
-	      {/* 1. Heading Area */}
-	      <div className="title">
-		The points app
-		<div>built in React</div>
-	      </div>
+	      {/* 1. Controls Area */}
+	      <ControlsColumn />
 
+	      {/* 2. The Canvas Area */}
 	      <XYplane />
 	    
 	    </div>

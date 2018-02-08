@@ -1,13 +1,14 @@
 import React from 'react';
 
-function Bob(props) {
+function ControlsColumn(props) {
 
     return (
-	<div className="Bob">
-
+	<div className="ControlsColumn">
+	  Hello World <br/>
+	  I am the ControlsColumn
 	</div>
     );
 
 }
 
-export default Bob;
+export default ControlsColumn;

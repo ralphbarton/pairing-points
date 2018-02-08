@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Points_App from './Points_App';
