@@ -1,0 +1,87 @@
+/* Briefcase_content.css */
+
+
+/* general*/
+
+.a{
+    text-decoration: underline;
+    color: blue;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.p{
+  margin: 4px 0;
+}
+
+
+.Briefcase .content{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+
+
+
+
+
+/* modify the 'padding' effect of the "Select" component */
+
+
+.CreatePointset .Select{
+  width: 210px;
+}
+
+div.Select-control,
+.Select .Select-input
+{
+  height: 22px;
+}
+
+.Points_App .Select-input input{
+  padding: 2px;
+}
+
+.Points_App .Select div.Select-value,
+.Points_App .Select div.Select-placeholder{
+  line-height: 23px;
+}
+
+
+
+
+
+
+
+
+/* 1. - CreatePointset */
+
+
+.CreatePointset input.set-N{
+  width: 40px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+.CreatePointset .generate{
+  width: 180px;
+}
+
+
+/* 2. - PointsSelection */
+
+
+/* 3. - PairingAlgorithm */
+
+.PairingAlgorithm .Select{
+  width: 150px;
+}
+
+
+/* 4. - DisplaySettings */

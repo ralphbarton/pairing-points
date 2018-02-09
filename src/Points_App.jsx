@@ -2,13 +2,12 @@ import React from 'react';
 
 import update from 'immutability-helper';
 
-/*
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
- */
+
 
 import ControlsColumn from './ControlsColumn';
 import XYplane from './XYplane';
+
+import 'react-select/dist/react-select.css';
 
 //var _ = require('lodash');
 
@@ -18,13 +17,18 @@ class Points_App extends React.Component {
 	super();
 	this.state = {
 	    BriefcaseOpen:{
-		1: false,
-		2: true
+		1: true,
+		2: true,
+		3: true,
+		4: true
 	    },
-	    Pointset: {
+	    CreatePointset: {
 		n: 10,
-		dist: null,
+		dist: undefined,
 		points: []
+	    },
+	    PairingAlgorithm: {
+		alg: undefined
 	    }
 	};
 	this.updateState = this.updateState.bind(this);

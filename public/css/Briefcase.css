@@ -1,45 +1,46 @@
 /* Briefcase.css */
 
 .Briefcase{
-  margin: 4px;
-  border: 3px solid blue;
-  border-radius: 2px;
-  margin-bottom: 8px;
+    margin: 4px;
+    border: 3px solid blue;
+    border-radius: 2px;
+    margin-bottom: 8px;
 }
 
 .Briefcase .title{
-  background: blue;
-  color: white;
-  padding-bottom: 2px;
-  position: relative;
+    background: blue;
+    color: white;
+    padding-bottom: 2px;
+    position: relative;
 }
 
 .Briefcase .content{
-  max-height: 0;
+    max-height: 0;
     overflow: hidden;
-  background: rgba(255,255,255, 0.7);
-  transition: max-height 0.4s, padding 0.2s linear;
+    background: rgba(255,255,255, 0.7);
+    transition: max-height 0.4s, padding 0.2s linear;
 }
 
 .Briefcase .content.open{
     padding: 3px;
-  max-height: 50px;
-  /* can do better than this
+    max-height: 500px;
+    overflow:visible;
+/* can do better than this
   fixed value once contents are known*/
 }
 
 .Briefcase svg{
-  position: absolute;
-  right: 5px;
-  top: 1px;
+    position: absolute;
+    right: 5px;
+    top: 1px;
 
 }
 
 .Briefcase svg polyline{
-  fill:none;
-  stroke:white;
-  stroke-width: 3;
-  stroke-linecap: round;
+    fill:none;
+    stroke:white;
+    stroke-width: 3;
+    stroke-linecap: round;
 }
 
 

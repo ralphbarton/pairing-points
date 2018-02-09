@@ -26,24 +26,32 @@ function ControlsColumn(props) {
 	     id="1"
 	     open={isOpen[1]}
 	     toggleOpen={HofTog(1)}
+	     state={props.state}
+	     updateState={props.updateState}
 	     />
 
 	  <PointsSelection
 	     id="2"
 	     open={isOpen[2]}
 	     toggleOpen={HofTog(2)}
+	     state={props.state}
+	     updateState={props.updateState}
 	     />
 
 	  <PairingAlgorithm
 	     id="3"
 	     open={isOpen[3]}
 	     toggleOpen={HofTog(3)}
+	     state={props.state}
+	     updateState={props.updateState}
 	     />
 
 	  <DisplaySettings
 	     id="4"
 	     open={isOpen[4]}
 	     toggleOpen={HofTog(4)}
+	     state={props.state}
+	     updateState={props.updateState}
 	     />
 	    
 	</div>
