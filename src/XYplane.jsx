@@ -11,25 +11,21 @@ class XYplane extends React.Component {
 	this.durationMs = 4000;
 	this.incr = 1;
     }
+    
 
     componentDidMount(){
 
-	const canvas = new fabric.Canvas(this.fabricCanvasElement);
-	this.canvas = canvas;
+	this.regenerateFabricCanvas();
 
-	//for debug interaction in console:
-	window.canvas = canvas;
+	window.addEventListener("resize", ()=>{
 
+	    const canvasDimentions = this.calcCanvasDimentions();
+	    this.plainCanvasElement.width  = canvasDimentions.width;
+	    this.plainCanvasElement.height = canvasDimentions.height;
+
+	    this.regenerateFabricCanvas();	    
+	});
 	
-	var circle = new fabric.Circle({
-	    radius: 100, fill: '#F90', left: 100, top: 130
-	});
-	var triangle = new fabric.Triangle({
-	    width: 160, height: 220, angle: 30, fill: '#29A', left: 350, top: 20
-	});
-
-	canvas.add(circle, triangle);
-
     }
 
     componentWillUnmount(){
@@ -40,9 +36,9 @@ class XYplane extends React.Component {
 
     onAnimationFrame(time) {
 
-//	const progress = Math.round(time / this.durationMs * 10000)/100;
-//	const progress2 = progress % 100; //Mod100
-//	this.bar.style.width = `${progress2}%`;
+	//	const progress = Math.round(time / this.durationMs * 10000)/100;
+	//	const progress2 = progress % 100; //Mod100
+	//	this.bar.style.width = `${progress2}%`;
 
 	const oldLeft = this.canvas._objects[0].left;
 	if(oldLeft>300){this.incr = -1;}
@@ -59,25 +55,56 @@ class XYplane extends React.Component {
 	 }
 	 */
     }
-    
-    render() {
 
+    
+    regenerateFabricCanvas(){
+	if(this.canvas){
+	    this.canvas.dispose();
+	}
+
+	const canvas = new fabric.Canvas(this.plainCanvasElement);
+	this.canvas = canvas;
+
+	//for debug interaction in console:
+	window.canvas = canvas;
+
+	
+	var circle = new fabric.Circle({
+	    radius: 100, fill: '#F90', left: 100, top: 130
+	});
+	var triangle = new fabric.Triangle({
+	    width: 160, height: 220, angle: 30, fill: '#29A', left: 350, top: 20
+	});
+
+	canvas.add(circle, triangle);
+    }
+
+    
+    calcCanvasDimentions(){
 	const W = window.innerWidth;
 	const H = window.innerHeight;
 	const LeftCol_W = 250;
 	const M = 20;
 
-	const canv_W = W - 3*M - LeftCol_W;
-	const canv_H = H - 2*M;
+	const width = W - 3*M - LeftCol_W;
+	const height = H - 2*M;
+
+	return {width, height};
+    }
+    
+    
+    render() {
+
+	const canvasDimentions = this.calcCanvasDimentions();
 	
 	return (
 	    <div className="XYplane">
 
 	      <div>
 		<canvas
-		   width={canv_W}
-		   height={canv_H}
-		   ref={ el => {this.fabricCanvasElement = el;}}
+		   width={canvasDimentions.width}
+		   height={canvasDimentions.height}
+		   ref={ el => {this.plainCanvasElement = el;}}
 		  />
 	      </div>
 
