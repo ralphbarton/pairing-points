@@ -1,13 +1,23 @@
 import React from 'react';
 
-function Bob(props) {
+import Briefcase from './Briefcase';
+
+function DisplaySettings(props) {
 
     return (
-	<div className="Bob">
+	<Briefcase
+	   id={props.id}
+	   className="DisplaySettings"
+	   title="Display"
+	   open={props.open}
+	   toggleOpen={props.toggleOpen}
+	   >
+	  Display Settings <br/>
+	  the interface goes here...
+	</Briefcase>
 
-	</div>
     );
 
 }
 
-export default Bob;
+export default DisplaySettings;

@@ -6,7 +6,7 @@ function Briefcase(props) {
     const downArrow = "1,4 10,14 19,4";
     
     return (
-	<div className={"Briefcase id-"+props.id}>
+	<div className={"Briefcase id-"+props.id + ' ' + (props.className || "")}>
 	  <div className="title"
 	       onClick={props.toggleOpen}
 	       >{props.title}

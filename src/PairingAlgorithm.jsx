@@ -1,13 +1,23 @@
 import React from 'react';
 
-function Bob(props) {
+import Briefcase from './Briefcase';
+
+function PairingAlgorithm(props) {
 
     return (
-	<div className="Bob">
+	<Briefcase
+	   id={props.id}
+	   className="PairingAlgorithm"
+	   title="Pairing Algorithm"
+	   open={props.open}
+	   toggleOpen={props.toggleOpen}
+	   >
+	  Pairing Algorithm<br/>
+	  the interface goes here...
+	</Briefcase>
 
-	</div>
     );
 
 }
 
-export default Bob;
+export default PairingAlgorithm;

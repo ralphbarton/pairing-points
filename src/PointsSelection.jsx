@@ -2,17 +2,17 @@ import React from 'react';
 
 import Briefcase from './Briefcase';
 
-function CreatePointset(props) {
+function PointsSelection(props) {
 
     return (
 	<Briefcase
 	   id={props.id}
-	   className="CreatePointset"
-	   title="Points"
+	   className="PointsSelection"
+	   title="Points Selection"
 	   open={props.open}
 	   toggleOpen={props.toggleOpen}
 	   >
-	  n= <br/>
+	  Points Selection <br/>
 	  the interface goes here...
 	</Briefcase>
 
@@ -20,4 +20,4 @@ function CreatePointset(props) {
 
 }
 
-export default CreatePointset;
+export default PointsSelection;

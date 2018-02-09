@@ -1,6 +1,9 @@
 import React from 'react';
 
-import Briefcase from './Briefcase';
+import CreatePointset from './CreatePointset';
+import PointsSelection from './PointsSelection';
+import PairingAlgorithm from './PairingAlgorithm';
+import DisplaySettings from './DisplaySettings';
 
 function ControlsColumn(props) {
 
@@ -19,24 +22,29 @@ function ControlsColumn(props) {
 	    Pairing Points
 	  </div>
 
-	  <Briefcase
+	  <CreatePointset
 	     id="1"
-	     title="George"
 	     open={isOpen[1]}
 	     toggleOpen={HofTog(1)}
-	     >
-	    My Briefcase 1
-	  </Briefcase>
+	     />
 
-	  <Briefcase
+	  <PointsSelection
 	     id="2"
-	     title="Adam"
 	     open={isOpen[2]}
 	     toggleOpen={HofTog(2)}
-	     >
-	    My Briefcase 2
-	  </Briefcase>
+	     />
 
+	  <PairingAlgorithm
+	     id="3"
+	     open={isOpen[3]}
+	     toggleOpen={HofTog(3)}
+	     />
+
+	  <DisplaySettings
+	     id="4"
+	     open={isOpen[4]}
+	     toggleOpen={HofTog(4)}
+	     />
 	    
 	</div>
     );
