@@ -1,0 +1,23 @@
+/* ControlsColumn.css */
+
+.ControlsColumn{
+    background: #eed586;
+    font-size: 14px;
+}
+
+/* layout */
+.Logo{
+    margin: 6px 12px;
+    color: #32c1ae;
+}
+
+/* actual font style */
+.Logo{
+    font-size: 28px;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #7c00c6;
+    text-shadow: 0px 0px 5px red;
+}
+
+/
