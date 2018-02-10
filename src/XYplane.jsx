@@ -1,6 +1,9 @@
 import React from 'react';
 
 import {fabric}  from 'fabric';
+
+import PlaneAxesSVG from './PlaneAxesSVG';
+
 const ReactAnimationFrame = require('react-animation-frame');
 
 class XYplane extends React.Component {
@@ -10,22 +13,27 @@ class XYplane extends React.Component {
 
 	this.durationMs = 4000;
 	this.incr = 1;
+
+	this.state = {
+	    size: this.calcCanvasDimentions()
+	};
     }
     
 
     componentDidMount(){
-
 	this.regenerateFabricCanvas();
-
 	window.addEventListener("resize", ()=>{
 
-	    const canvasDimentions = this.calcCanvasDimentions();
-	    this.plainCanvasElement.width  = canvasDimentions.width;
-	    this.plainCanvasElement.height = canvasDimentions.height;
+	    this.setState({
+		size: this.calcCanvasDimentions()
+	    });
 
-	    this.regenerateFabricCanvas();	    
 	});
 	
+    }
+
+    componentDidUpdate(){
+	this.regenerateFabricCanvas();
     }
 
     componentWillUnmount(){
@@ -100,6 +108,8 @@ class XYplane extends React.Component {
 	return (
 	    <div className="XYplane">
 
+	      <PlaneAxesSVG {...canvasDimentions}/>
+	      
 	      <div>
 		<canvas
 		   width={canvasDimentions.width}

@@ -1,6 +1,18 @@
 /* XYplane.css */
 
 
+.XYplane{
+    background-color: #EEE;
+}
+
 .XYplane .canvas-container{
-    background: #EEE;
+}
+
+.XYplane .PlaneAxesSVG svg{
+    position: absolute;
+}
+
+.PlaneAxesSVG line,
+.PlaneAxesSVG path{
+    stroke-width: 2;
 }

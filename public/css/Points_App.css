@@ -30,13 +30,15 @@ body {
 }
 
 .ControlsColumn,
-.canvas-container{
+.XYplane{
     box-shadow: 0px 0px 14px 3px black;
     margin: 20px;
     border-radius: 3px;
-    width: 250px;
+    overflow: hidden;
+    position: relative;
 }
 
 .ControlsColumn{
+    width: 250px;
     margin-right: 0;
 }

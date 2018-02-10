@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^4.13.0",
+    "d3-selection-multi": "^1.0.1",
     "fabric": "^1.7.22",
     "immutability-helper": "^2.6.4",
     "mathjs": "^3.20.2",

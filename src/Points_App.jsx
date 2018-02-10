@@ -31,7 +31,7 @@ class Points_App extends React.Component {
 		alg: undefined
 	    },
 	    ImportExportModal: {
-		visible: true,
+		visible: false,
 		tab: 'E' // 'E' export, 'I' import
 	    }
 	};
