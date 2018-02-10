@@ -64,6 +64,11 @@ div.Select-control,
   font-weight: bold;
 }
 
+.CreatePointset .p > span{
+  margin-bottom: 3px;
+  display: block;
+}
+
 
 .CreatePointset .generate{
   width: 180px;

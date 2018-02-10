@@ -7,8 +7,9 @@
 
 /* layout */
 .Logo{
-    margin: 6px 12px;
+    margin: 8px 12px;
     color: yellow;
+    margin-bottom: 12px;
 }
 
 /* actual font style */

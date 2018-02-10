@@ -89,6 +89,7 @@ function CreatePointset(props){
 	  </div>
 
 	  <div className="p">
+	    <span>Distribution:</span>
 	    <Select
 	       value={State.dist && State.dist.value}
 	       onChange={(sel) => {
