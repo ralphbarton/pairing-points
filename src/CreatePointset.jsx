@@ -64,7 +64,11 @@ function CreatePointset(props){
 	  </div>
 
 	  <div className="p">
-	    <div className="a">import/export</div>
+	    <div
+	       className="a"
+	       onClick={()=>{
+		   props.updateState({ImportExportModal: {visible: {$set: true}}});
+	      }}>import/export</div>
 	  </div>
 	  
 	</Briefcase>

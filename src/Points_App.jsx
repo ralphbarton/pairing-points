@@ -3,7 +3,7 @@ import React from 'react';
 import update from 'immutability-helper';
 
 
-
+import ImportExportModal from './ImportExportModal';
 import ControlsColumn from './ControlsColumn';
 import XYplane from './XYplane';
 
@@ -29,6 +29,10 @@ class Points_App extends React.Component {
 	    },
 	    PairingAlgorithm: {
 		alg: undefined
+	    },
+	    ImportExportModal: {
+		visible: true,
+		tab: 'E' // 'E' export, 'I' import
 	    }
 	};
 	this.updateState = this.updateState.bind(this);
@@ -44,13 +48,13 @@ class Points_App extends React.Component {
 	return (
 	    <div className="Points_App">
 
-	      {/* 1. Controls Area */}
-	      <ControlsColumn
-		 state={this.state}
-		 updateState={this.updateState}
-		 />
+	      {/* 1. The Modal overlay (it may or may not actually be visible) */}
+	      <ImportExportModal state={this.state} updateState={this.updateState} />
+	      
+	      {/* 2. Controls Area */}
+	      <ControlsColumn state={this.state} updateState={this.updateState} />
 
-	      {/* 2. The Canvas Area */}
+	      {/* 3. The Canvas Area */}
 	      <XYplane />
 	    
 	    </div>
