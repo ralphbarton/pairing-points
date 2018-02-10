@@ -3,6 +3,7 @@ import React from 'react';
 import {fabric}  from 'fabric';
 
 import PlaneAxesSVG from './PlaneAxesSVG';
+import SprayOverlaySVG from './SprayOverlaySVG';
 
 const ReactAnimationFrame = require('react-animation-frame');
 
@@ -122,6 +123,9 @@ class XYplane extends React.Component {
 	      <div className="timer__bar" ref={node => this.bar = node}></div>
 	      */}
 
+	      <SprayOverlaySVG {...canvasDimentions}/>
+	      
+	      
 	    </div>
 	);
     }

@@ -8,11 +8,19 @@
 .XYplane .canvas-container{
 }
 
-.XYplane .PlaneAxesSVG svg{
+.XYplane svg{
     position: absolute;
+    top: 0;
+    left: 0,
+    
 }
 
 .PlaneAxesSVG line,
 .PlaneAxesSVG path{
     stroke-width: 2;
+}
+
+
+.XYplane .SprayOverlaySVG svg circle{
+    fill: rgba(56, 162, 238, 0.5);
 }
