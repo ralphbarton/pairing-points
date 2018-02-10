@@ -5,6 +5,64 @@ import Briefcase from './Briefcase';
 
 import Select from 'react-select';
 
+function SprayOptions(props){
+
+    const State = props.state.CreatePointset;
+    
+    return (
+	<div className="SprayOptions">
+	  
+	  <div className="title">
+	    spray points
+	  </div>
+	  
+	  <div className="p">
+	    circle radius:
+	    <input 
+	       type="number"
+	       value={State.SprayRadius}
+	       min={15}
+	       max={400}
+	       onChange={(e) => {
+		   props.updateState({CreatePointset: {SprayRadius: {$set: e.target.value}}});
+	      }}
+	      />
+	      <span>pixels</span>
+	  </div>
+
+
+	  <div className="p">
+	    spray rate:
+	    <input type="number"
+		   value={State.SprayRate}
+		   min={1}
+		   onChange={(e) => {
+		       props.updateState({CreatePointset: {SprayRate: {$set: e.target.value}}});
+	      }}
+	      />
+	      <span>points per second</span>
+	  </div>
+
+
+
+	  
+	  <button
+	     onClick={()=>{
+		 props.updateState({CreatePointset: {SprayOverlay: {$set: false}}});
+	    }}
+	    >
+	    Done
+	  </button>
+
+
+	</div>
+    );
+}
+
+
+
+
+
 
 
 function CreatePointset(props){
@@ -60,7 +118,17 @@ function CreatePointset(props){
 	  </div>
 
 	  <div className="p">
-	    <div className="a">spray points</div>
+	    { State.SprayOverlay ?
+		<SprayOptions {...props}/>
+		    :
+		<div className="a"
+			 onClick={()=>{
+			     props.updateState({CreatePointset: {SprayOverlay: {$set: true}}});
+			 }}>
+		      spray points
+		</div>
+	    }
+
 	  </div>
 
 	  <div className="p">

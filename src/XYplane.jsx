@@ -123,8 +123,13 @@ class XYplane extends React.Component {
 	      <div className="timer__bar" ref={node => this.bar = node}></div>
 	      */}
 
-	      <SprayOverlaySVG {...canvasDimentions}/>
-	      
+	      { this.props.state.CreatePointset.SprayOverlay &&
+		  <SprayOverlaySVG
+			 state={this.props.state}
+			 updateState={this.props.updateState}
+			 {...canvasDimentions}
+			 />
+	      }
 	      
 	    </div>
 	);

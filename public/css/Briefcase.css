@@ -7,7 +7,7 @@
     margin-bottom: 8px;
 }
 
-.Briefcase .title{
+.Briefcase > .title{
     background: blue;
     color: white;
     padding-bottom: 2px;
@@ -49,20 +49,20 @@
 
 /* Setting specific Briefcases colours */
 
-.Briefcase.id-1        { border-color: #9414F4;}
-.Briefcase.id-1 .title { background-color: #9414F4;}
+.Briefcase.id-1          { border-color: #9414F4;}
+.Briefcase.id-1 > .title { background-color: #9414F4;}
 
-.Briefcase.id-2        { border-color: #FE50E5;}
-.Briefcase.id-2 .title { background-color: #FE50E5;}
+.Briefcase.id-2          { border-color: #FE50E5;}
+.Briefcase.id-2 > .title { background-color: #FE50E5;}
 
-.Briefcase.id-3        { border-color: #00B1C4;}
-.Briefcase.id-3 .title { background-color: #00B1C4;}
+.Briefcase.id-3          { border-color: #00B1C4;}
+.Briefcase.id-3 > .title { background-color: #00B1C4;}
 
-.Briefcase.id-4        { border-color: #FE8500;}
-.Briefcase.id-4 .title { background-color: #FE8500;}
+.Briefcase.id-4          { border-color: #FE8500;}
+.Briefcase.id-4 > .title { background-color: #FE8500;}
 
-.Briefcase.id-5        { border-color: #00B050;}
-.Briefcase.id-5 .title { background-color: #00B050;}
+.Briefcase.id-5          { border-color: #00B050;}
+.Briefcase.id-5 > .title { background-color: #00B050;}
 
-.Briefcase.id-6        { border-color: #A75737;}
-.Briefcase.id-6 .title { background-color: #A75737;}
+.Briefcase.id-6          { border-color: #A75737;}
+.Briefcase.id-6 > .title { background-color: #A75737;}

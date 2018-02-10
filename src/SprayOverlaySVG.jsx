@@ -30,7 +30,7 @@ class SprayOverlaySVG extends React.Component {
     }
     
     render() {
-	
+
 	return (
 	    <div className="SprayOverlaySVG">
 
@@ -40,7 +40,7 @@ class SprayOverlaySVG extends React.Component {
 		 ref={ el => {this.SVGelement = el;}}
 		onMouseDown={(event) => { if(event.preventDefault) {event.preventDefault();}}}
 		>
-		<circle cx="100" cy="100" r="40" fill="red" />
+		<circle cx="-100" cy="-100" r={this.props.state.CreatePointset.SprayRadius} />
 	      </svg>
 	    </div>
 	);

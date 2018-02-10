@@ -20,6 +20,9 @@
     stroke-width: 2;
 }
 
+.XYplane .SprayOverlaySVG svg{
+    cursor: crosshair;
+}
 
 .XYplane .SprayOverlaySVG svg circle{
     fill: rgba(56, 162, 238, 0.5);

@@ -25,7 +25,10 @@ class Points_App extends React.Component {
 	    CreatePointset: {
 		n: 10,
 		dist: undefined,
-		points: []
+		points: [],
+		SprayOverlay: false,
+		SprayRadius: 80,
+		SprayRate: 12
 	    },
 	    PairingAlgorithm: {
 		alg: undefined
@@ -55,7 +58,7 @@ class Points_App extends React.Component {
 	      <ControlsColumn state={this.state} updateState={this.updateState} />
 
 	      {/* 3. The Canvas Area */}
-	      <XYplane />
+	      <XYplane state={this.state} updateState={this.updateState} />
 	    
 	    </div>
 	);
