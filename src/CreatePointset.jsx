@@ -2,8 +2,11 @@ import React from 'react';
 
 import Briefcase from './Briefcase';
 
-
 import Select from 'react-select';
+
+import InputNumericWithSlider from './InputNumericWithSlider';
+
+
 
 function SprayOptions(props){
 
@@ -15,37 +18,25 @@ function SprayOptions(props){
 	  <div className="title">
 	    spray points
 	  </div>
-	  
-	  <div className="p">
-	    circle radius:
-	    <input 
-	       type="number"
-	       value={State.SprayRadius}
-	       min={15}
-	       max={400}
-	       onChange={(e) => {
-		   props.updateState({CreatePointset: {SprayRadius: {$set: e.target.value}}});
-	      }}
+
+	  <InputNumericWithSlider
+	     value={State.SprayRadius}
+	     setValue={ (v)=>{props.updateState({CreatePointset: {SprayRadius: {$set: v}}});}}
+	     min={15}
+	     max={400}
+	     description="circle radius:"
+	     unit="pixels"
+	    />
+
+	    <InputNumericWithSlider
+	       value={State.SprayRate}
+	       setValue={ (v)=>{props.updateState({CreatePointset: {SprayRate: {$set: v}}});}}
+	       min={2}
+	       max={60}
+	       description="spray rate:"
+	       unit="points per second"
 	      />
-	      <span>pixels</span>
-	  </div>
-
-
-	  <div className="p">
-	    spray rate:
-	    <input type="number"
-		   value={State.SprayRate}
-		   min={1}
-		   onChange={(e) => {
-		       props.updateState({CreatePointset: {SprayRate: {$set: e.target.value}}});
-	      }}
-	      />
-	      <span>points per second</span>
-	  </div>
-
-
-
-	  
+	  	  
 	  <button
 	     onClick={()=>{
 		 props.updateState({CreatePointset: {SprayOverlay: {$set: false}}});
@@ -77,16 +68,13 @@ function CreatePointset(props){
 	   open={props.open}
 	   toggleOpen={props.toggleOpen}>
 
-	  <div className="p">
-	    n= <input className="set-N"
-		  type="number"
-		  value={State.n}
-		  min={1}
-		  onChange={(e) => {
-		      props.updateState({CreatePointset: {n: {$set: e.target.value}}});
-	      }}
-	      />
-	  </div>
+	  <InputNumericWithSlider
+	     value={State.n}
+	     setValue={ (v)=>{props.updateState({CreatePointset: {n: {$set: v}}});}}
+	     min={1}
+	     max={600}
+	     description="n="
+	    />
 
 	  <div className="p">
 	    <span>Distribution:</span>

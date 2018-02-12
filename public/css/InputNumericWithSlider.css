@@ -1,0 +1,11 @@
+/* InputNumericWithSlider.css */
+
+.InputNumericWithSlider input{
+  width: 40px;
+}
+
+.InputNumericWithSlider span{
+  font-size: 10px;
+  font-style: italic;
+  opacity: 0.7;
+}

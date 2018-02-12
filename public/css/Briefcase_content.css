@@ -57,8 +57,12 @@ div.Select-control,
 
 /* 1. - CreatePointset */
 
+.CreatePointset > .content > .InputNumericWithSlider{
+  width: 225px;
+  text-align: center;
+}
 
-.CreatePointset input.set-N{
+.CreatePointset > .content > .InputNumericWithSlider > input{
   width: 40px;
   font-size: 17px;
   font-weight: bold;
@@ -98,20 +102,15 @@ div.Select-control,
   background-color: rgba(0,0,0,0.2);
 }
 
-.CreatePointset .SprayOptions .p{
+
+.CreatePointset .SprayOptions .InputNumericWithSlider{
+    margin: 6px 0;
+  margin-top: 10px;
   width: 155px;
   text-align: right;
 }
 
-.CreatePointset .SprayOptions input{
-  width: 40px;
-}
 
-.CreatePointset .SprayOptions span{
-  font-size: 10px;
-  font-style: italic;
-  opacity: 0.7;
-}
 
 
 /* 2. - PointsSelection */

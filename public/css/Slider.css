@@ -1,0 +1,75 @@
+/* Slider.css */
+
+
+/* 1. styling copied accross and stripped down...*/
+
+.rc-slider {
+    position: relative;
+    height: 14px;
+    padding: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+} 
+
+.rc-slider-rail {
+    position: absolute;
+    width: 100%;
+    background-color: #e9e9e9;
+    height: 4px;
+}
+
+.rc-slider-track {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    background-color: #abe2fb;
+}
+.rc-slider * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+
+
+
+/* 2. my customisations... */
+
+.rc-slider{
+  position: relative;
+  padding: 0;
+  height: 19px;
+}
+
+.rc-slider .rc-slider-rail {
+    height: 7px;
+    margin-top: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.2);
+}
+
+.rc-slider .rc-slider-track {
+  display: none;
+}
+
+.rc-slider .rc-slider-handle{
+  position: absolute;
+  cursor: pointer;
+      width: 7px;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.4);
+    background-color: #F2EEE0;
+    border-radius: 2px;
+    margin-left: -4px; /*half of w incl. border*/
+    cursor: default;
+    transition: background-color 0.1s, border-color 0.1s;
+}
+
+
+.rc-slider .rc-slider-handle:hover{
+    background-color: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,0.7);
+}
