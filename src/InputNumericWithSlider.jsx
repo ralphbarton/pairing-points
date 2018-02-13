@@ -15,7 +15,7 @@ function InputNumericWithSlider(props){
 	    step: 0.0001,
 	    value: _.round(Math.log2(props.value / props.min), 4),
 	    onChange: (v)=>{
-		props.setValue(_.round(props.min * (2**v), Math.log10(props.step)));
+		props.setValue(_.round(props.min * (2**v), -Math.log10(props.step)));
 	    }
 	};
     };
@@ -40,7 +40,7 @@ function InputNumericWithSlider(props){
 		      <Slider {...shared} onChange={ props.setValue } />
 	      }
 
-	      {props.logScale && <span>log scale</span>}
+	      {props.logScale && !props.noLogScaleLabel && <span>log scale</span>}
 		      
 	  </div>
     );

@@ -31,7 +31,9 @@ class Points_App extends React.Component {
 		SprayRate: 12
 	    },
 	    PairingAlgorithm: {
-		alg: undefined
+		alg: {value: 0},
+		alg0_angle: 0,
+		alg0_speed: 1
 	    },
 	    ImportExportModal: {
 		visible: false,

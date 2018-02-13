@@ -122,5 +122,15 @@ div.Select-control,
   width: 150px;
 }
 
+.PairingAlgorithm .InputNumericWithSlider{
+    margin: 3px 0;
+  width: 200px;
+  text-align: right;
+}
+
+.Briefcase .InputNumericWithSlider span{
+  display: block;
+}
+
 
 /* 4. - DisplaySettings */
