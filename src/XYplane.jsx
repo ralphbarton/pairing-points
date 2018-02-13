@@ -105,11 +105,13 @@ class XYplane extends React.Component {
     render() {
 
 	const canvasDimentions = this.calcCanvasDimentions();
+
+	const axesClass = this.props.state.DisplaySettings.axes ? "visible" : "";
 	
 	return (
 	    <div className="XYplane">
 
-	      <PlaneAxesSVG {...canvasDimentions}/>
+	      <PlaneAxesSVG {...canvasDimentions} className={axesClass}/>
 	      
 	      <div>
 		<canvas

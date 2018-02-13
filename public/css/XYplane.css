@@ -20,6 +20,15 @@
     stroke-width: 2;
 }
 
+.PlaneAxesSVG{
+    transition: opacity 0.4s;
+}
+
+.PlaneAxesSVG:not(.visible){
+    opacity: 0;
+}
+
+
 .XYplane .SprayOverlaySVG svg{
     cursor: crosshair;
 }

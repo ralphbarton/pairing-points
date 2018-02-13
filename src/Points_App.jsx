@@ -38,6 +38,9 @@ class Points_App extends React.Component {
 	    ImportExportModal: {
 		visible: false,
 		tab: 'E' // 'E' export, 'I' import
+	    },
+	    DisplaySettings: {
+		axes: true
 	    }
 	};
 	this.updateState = this.updateState.bind(this);

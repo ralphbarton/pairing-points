@@ -64,7 +64,7 @@ class PlaneAxesSVG extends React.Component {
     render() {
 	
 	return (
-	    <div className="PlaneAxesSVG">
+	    <div className={"PlaneAxesSVG " + (this.props.className)}>
 
 	      <svg
 		 width={this.props.width}
