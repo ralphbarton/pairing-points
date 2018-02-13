@@ -10,7 +10,8 @@ function PointsSelection(props) {
 	   className="PointsSelection"
 	   title="Points Selection"
 	   open={props.open}
-	   toggleOpen={props.toggleOpen}
+	   queryMsg="use the mouse to make a selection of points in the XY plane..."
+	   noOpen={true}
 	   >
 	  Points Selection <br/>
 	  the interface goes here...

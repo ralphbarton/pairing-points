@@ -29,11 +29,27 @@
   fixed value once contents are known*/
 }
 
-.Briefcase svg{
-    position: absolute;
-    right: 5px;
-    top: 1px;
 
+
+.Briefcase svg,
+.Briefcase .noOpen{
+    position: absolute;
+    font-weight: bold;
+    font-size: 120%;
+    right: 5px;
+    top: -1px;
+    opacity: 0.6;
+    transition: opacity 0.1s;
+    cursor: default;
+}
+
+.Briefcase svg{
+    top: 1px;
+}
+
+.Briefcase .noOpen:hover,
+.Briefcase svg:hover{
+    opacity: 1;
 }
 
 .Briefcase svg polyline{

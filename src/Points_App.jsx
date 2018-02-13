@@ -18,7 +18,7 @@ class Points_App extends React.Component {
 	this.state = {
 	    BriefcaseOpen:{
 		1: true,
-		2: true,
+		2: false,
 		3: true,
 		4: true
 	    },
