@@ -21,10 +21,10 @@ class Points_App extends React.Component {
 		tab: 'E' // 'E' export, 'I' import
 	    },
 	    BriefcaseOpen:{
-		1: false,
-		2: true,
+		1: true,
+		2: false,
 		3: true,
-		4: true
+		4: false
 	    },
 	    CreatePointset: {
 		n: 10,

@@ -89,7 +89,7 @@ function CreatePointset(props){
 		  { value: 0, label: 'Uniform (small circle)' },
 		  { value: 1, label: 'Uniform (large circle)' },
 		  { value: 2, label: 'Uniform (square)' },
-		  { value: 3, label: 'Uniform (full space)' },
+		  { value: 3, label: 'Uniform (visible space)' },
 		  { value: 4, label: '2D Gaussian (truncated)' },
 	      ]}
 	      clearable={false}

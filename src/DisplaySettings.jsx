@@ -24,10 +24,6 @@ function DisplaySettings(props) {
 	       onChange={()=>{props.updateState({DisplaySettings: {axes: {$set: !State.axes}}});}}
 	       />
 	  </div>
-
-	  <div className="p">
-	    Colours Controls (ToDo):
-	  </div>
 	    
 	</Briefcase>
 
