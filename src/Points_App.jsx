@@ -17,8 +17,8 @@ class Points_App extends React.Component {
 	super();
 	this.state = {
 	    BriefcaseOpen:{
-		1: true,
-		2: false,
+		1: false,
+		2: true,
 		3: true,
 		4: true
 	    },
@@ -27,7 +27,7 @@ class Points_App extends React.Component {
 		dist: undefined,
 		points: [],
 		SprayOverlay: false,
-		SprayRadius: 80,
+		SprayRadius: 1,
 		SprayRate: 12
 	    },
 	    PairingAlgorithm: {

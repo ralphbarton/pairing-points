@@ -31,6 +31,9 @@ class SprayOverlaySVG extends React.Component {
     
     render() {
 
+	//width is always the number of pixels representing 20 units on the numberline
+	const radiusPixels = this.props.state.CreatePointset.SprayRadius * this.props.width / 20;
+	
 	return (
 	    <div className="SprayOverlaySVG">
 
@@ -40,7 +43,7 @@ class SprayOverlaySVG extends React.Component {
 		 ref={ el => {this.SVGelement = el;}}
 		onMouseDown={(event) => { if(event.preventDefault) {event.preventDefault();}}}
 		>
-		<circle cx="-100" cy="-100" r={this.props.state.CreatePointset.SprayRadius} />
+		<circle cx="-100" cy="-100" r={radiusPixels} />
 	      </svg>
 	    </div>
 	);

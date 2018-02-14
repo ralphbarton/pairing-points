@@ -22,11 +22,10 @@ function SprayOptions(props){
 	  <InputNumericWithSlider
 	     value={State.SprayRadius}
 	     setValue={ (v)=>{props.updateState({CreatePointset: {SprayRadius: {$set: v}}});}}
-	     step={5}
-	     min={15}
-	     max={400}
+	     step={0.05}
+	     min={0.1}
+	     max={5}
 	     description="circle radius:"
-	     unit="pixels"
 	    />
 
 	    <InputNumericWithSlider

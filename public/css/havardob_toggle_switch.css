@@ -16,16 +16,17 @@ https://codemyui.com/toggle-switch-with-onoff-state/
 
 .HavardobSwitch > span{
   display: block;
-  margin-right: 80px;
+  margin-right: 65px;
   padding-right: 4px;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .HavardobSwitch label{
-  transform: scale(0.5);
+  transform: translate(50%,-50%) scale(0.4) translate(-50%,50%);
   position: absolute;
-  top: -20px;
-  right: -40px;
+  top: 0;
+  right: 0;
+  opacity: 0.8;
 }
 
 label {
