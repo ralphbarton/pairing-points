@@ -133,19 +133,56 @@ div.Select-control,
   margin-left: 10px;
 }
 
+.PointsSelection .p.u-line{
+  margin: 15px;
+  padding-top: 5px;
+  border-top: 3px double rgba(0,0,0,0.2);
+  width: 220px;
+  position: relative;
+}
 
-.PointsSelection label{
+.PointsSelection .p.u-line > div{
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background-color: #F8F4E5;
+  padding: 0 4px;
+  font-weight: bold;
+  font-size: 85%;
+  color: rgba(0,0,0,0.45);
+}
+
+.PointsSelection .p.u-line button{
+  position: absolute;
+  right: 5px;
+}
+
+
+.PointsSelection .p.u-line div.translation{
+  position: static;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+input{
+  margin-top: 5px;
+}
+
+.PointsSelection .translation label{
   margin: 0 8px;
 }
 
-.PointsSelection input{
+.PointsSelection .translation input{
   border: 1px solid grey;
   width: 40px;
 }
 
-
-
-
+.PointsSelection .p.u-line > label > input{
+  position: relative;
+  top: 3px;
+}
 
 
 

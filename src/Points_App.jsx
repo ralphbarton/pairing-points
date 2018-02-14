@@ -34,6 +34,13 @@ class Points_App extends React.Component {
 		SprayRadius: 1,
 		SprayRate: 12
 	    },
+	    PointsSelection:{
+		copy_xAxis: false,
+		copy_yAxis: false,
+		copy_translate: false,
+		translateX: 1,
+		translateY: 1
+	    },
 	    PairingAlgorithm: {
 		alg: {value: 0},
 		alg0_angle: 0,
