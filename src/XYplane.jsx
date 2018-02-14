@@ -158,8 +158,8 @@ class XYplane extends React.Component {
 	//	this.bar.style.width = `${progress2}%`;
 
 	const oldTop = canvas._objects[0].top;
-	if(oldTop>400){this.incr = -1;}
-	if(oldTop<30) {this.incr = +1;}
+	if(oldTop>100){this.incr = -0.1;}
+	if(oldTop<30) {this.incr = +0.1;}
 
 	
 	canvas._objects[0].setTop(oldTop + this.incr);
@@ -194,6 +194,33 @@ class XYplane extends React.Component {
 	});
 
 	canvas.add(circle, triangle);
+
+
+	
+	const fabricPoint = point => {
+
+	    const W = this.state.size.width;
+	    const H = this.state.size.height;
+	    const rH = 20 * H/W;
+
+	    const pixX = W * (point.x+10) / 20;
+	    const pixY = H * (1-((point.y+rH/2) / rH));
+	    
+	    return new fabric.Circle({
+		// small radius 4, large radius 8
+		radius: 3, fill: 'black',
+		//stroke: 'rgba(148, 20, 244, 1)', strokeWidth: 3,
+		left: pixX, top: pixY, originX: 'center', originY: 'center'
+	    });
+	};
+
+	const allFabPoints = this.props.state.CreatePointset.points.map(fabricPoint);
+
+	allFabPoints.forEach( fObj => {
+	    canvas.add(fObj);
+	});
+
+	
     }
 
     

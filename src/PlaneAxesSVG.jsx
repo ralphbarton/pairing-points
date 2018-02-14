@@ -45,7 +45,7 @@ class PlaneAxesSVG extends React.Component {
 	const relH = this.props.height / this.props.width;
 
 	var y = d3.scaleLinear()
-		.domain([-10*relH, 10*relH])
+		.domain([10*relH, -10*relH])
 		.range([0, this.props.height]);//pixels
 
 	// create the axes object
