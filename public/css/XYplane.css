@@ -15,6 +15,10 @@
     
 }
 
+.XYplane svg.gaussSVG{
+    display: none;
+}
+
 .PlaneAxesSVG line,
 .PlaneAxesSVG path{
     stroke-width: 2;
