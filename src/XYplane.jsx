@@ -70,13 +70,12 @@ class XYplane extends React.Component {
 	// respond to a change in the selected distribution for points generation
 	// (n.b. unlike above this is parent-component state)
 	const canvas = this.canvas;
-
-	const distVal = this.props.state.CreatePointset.dist ? this.props.state.CreatePointset.dist.value : null;
-	const prevDist = prevProps.state.CreatePointset.dist;
-	const distChange = !prevDist || prevDist.value !== distVal;
+	const distChange = this.props.state.CreatePointset.dist_nChg !== prevProps.state.CreatePointset.dist_nChg;
 
 	if(distChange){
 
+	    const distVal = this.props.state.CreatePointset.dist.value;
+	    
 	    const cx = this.state.size.width  / 2;
 	    const cy = this.state.size.height / 2;
 	    const unit = cx/10;

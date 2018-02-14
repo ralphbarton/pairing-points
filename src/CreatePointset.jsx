@@ -83,7 +83,10 @@ function CreatePointset(props){
 	    <Select
 	       value={State.dist && State.dist.value}
 	       onChange={(sel) => {
-		   props.updateState({CreatePointset: {dist: {$set: sel}}});
+		   props.updateState({CreatePointset: {
+		       dist: {$set: sel},
+		       dist_nChg: {$apply: x=>{return x+1;}}
+		   }});
 	      }}
 	      options={[
 		  { value: 0, label: 'Uniform (small circle)' },

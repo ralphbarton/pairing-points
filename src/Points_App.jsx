@@ -29,6 +29,7 @@ class Points_App extends React.Component {
 	    CreatePointset: {
 		n: 10,
 		dist: undefined,
+		dist_nChg: 0,
 		points: [],
 		SprayOverlay: false,
 		SprayRadius: 1,
