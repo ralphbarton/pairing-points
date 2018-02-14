@@ -16,6 +16,10 @@ class Points_App extends React.Component {
     constructor(){
 	super();
 	this.state = {
+	    ImportExportModal: {
+		visible: false,
+		tab: 'E' // 'E' export, 'I' import
+	    },
 	    BriefcaseOpen:{
 		1: false,
 		2: true,
@@ -34,10 +38,6 @@ class Points_App extends React.Component {
 		alg: {value: 0},
 		alg0_angle: 0,
 		alg0_speed: 1
-	    },
-	    ImportExportModal: {
-		visible: false,
-		tab: 'E' // 'E' export, 'I' import
 	    },
 	    DisplaySettings: {
 		axes: true

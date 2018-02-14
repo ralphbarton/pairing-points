@@ -29,7 +29,7 @@ https://codemyui.com/toggle-switch-with-onoff-state/
   opacity: 0.8;
 }
 
-label {
+.HavardobSwitch label {
   display: block;
   width: 160px;
   background: #CCC;
@@ -42,10 +42,12 @@ label {
 
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
-label input {
+
+.HavardobSwitch label input {
   display: none;
 }
-label div {
+
+.HavardobSwitch label div {
   display: block;
   width: 120px;
   height: 50px;
@@ -58,7 +60,8 @@ label div {
   background: linear-gradient(to bottom, #8b8c8e 20%, #f4f4f4);
   border-radius: 25px;
 }
-label div:after {
+
+.HavardobSwitch label div:after {
   content: "";
   position: absolute;
   display: block;
@@ -73,7 +76,8 @@ label div:after {
   -webkit-transition: .20s;
   transition: .20s;
 }
-label i {
+
+.HavardobSwitch label i {
   display: block;
   width: 60px;
   height: 60px;
@@ -88,7 +92,8 @@ label i {
   -webkit-transition: .25s;
   transition: .25s;
 }
-label i:after {
+
+.HavardobSwitch label i:after {
   content: "";
   position: absolute;
   display: block;

@@ -129,6 +129,19 @@ div.Select-control,
   background-color: rgba(255,255,255,0.7);
 }
 
+.PointsSelection button.delete{
+  margin-left: 10px;
+}
+
+
+.PointsSelection label{
+  margin: 0 8px;
+}
+
+.PointsSelection input{
+  border: 1px solid grey;
+  width: 40px;
+}
 
 
 
