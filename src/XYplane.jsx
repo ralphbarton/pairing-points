@@ -23,10 +23,11 @@ class XYplane extends React.Component {
 
     componentDidMount(){
 	this.regenerateFabricCanvas();
+	this.calcCanvasDimentions(true);//this function call is to set aspect ratio in parent
 	window.addEventListener("resize", ()=>{
 
 	    this.setState({
-		size: this.calcCanvasDimentions()
+		size: this.calcCanvasDimentions(true)
 	    });
 
 	});
@@ -42,7 +43,7 @@ class XYplane extends React.Component {
     gauss(){
 	const cx = this.state.size.width;
 	return(
-	    <svg className="gaussSVG" width={cx} height={cx} viewBox="0 0 100 100" ref={ el => {this.gaussSVG = el;}}>
+	    <svg className="gaussSVG" width={cx} height={cx} viewBox="0 0 99 99" ref={ el => {this.gaussSVG = el;}}>
 		<path
 		   d="M13.8,86.8c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5c19.1,0,23.9-21.3,27.4-36.9c2.2-9.6,3.9-17.3,8.3-17.4c0,0,0,0,0,0   c0.3,0,0.5,0.2,0.5,0.5c0,0.3-0.2,0.5-0.5,0.5c-3.6,0.1-5.4,7.8-7.3,16.6C38.6,65,33.7,86.8,13.8,86.8z"
 		   stroke="rgba(148, 20, 244, 1)"
@@ -141,6 +142,15 @@ class XYplane extends React.Component {
 		}, 600);
 	    }
 	}
+
+	const pointsChange = this.props.state.CreatePointset.points !== prevProps.state.CreatePointset.points;
+
+	if( pointsChange ){
+	    this.regenerateFabricCanvas();
+	    return;
+	}
+
+
 	
     }
 
@@ -180,6 +190,8 @@ class XYplane extends React.Component {
 	}
 
 	const canvas = new fabric.Canvas(this.plainCanvasElement);
+	//massive boost to performance, for adding many points!!
+	canvas.renderOnAddRemove = false;
 	this.canvas = canvas;
 
 	//for debug interaction in console:
@@ -196,35 +208,28 @@ class XYplane extends React.Component {
 	canvas.add(circle, triangle);
 
 
-	
-	const fabricPoint = point => {
+	const W = this.state.size.width;
+	const H = this.state.size.height;
+	const rH = 20 * H/W;
 
-	    const W = this.state.size.width;
-	    const H = this.state.size.height;
-	    const rH = 20 * H/W;
-
-	    const pixX = W * (point.x+10) / 20;
-	    const pixY = H * (1-((point.y+rH/2) / rH));
-	    
-	    return new fabric.Circle({
-		// small radius 4, large radius 8
-		radius: 3, fill: 'black',
-		//stroke: 'rgba(148, 20, 244, 1)', strokeWidth: 3,
-		left: pixX, top: pixY, originX: 'center', originY: 'center'
-	    });
-	};
-
-	const allFabPoints = this.props.state.CreatePointset.points.map(fabricPoint);
-
-	allFabPoints.forEach( fObj => {
-	    canvas.add(fObj);
+	// rescale each of those points into pixel coordinate system and put on Canvas
+	this.props.state.CreatePointset.points.forEach( point => {
+	    canvas.add(
+		new fabric.Circle({
+		    // small radius 4, large radius 8
+		    radius: 3, fill: 'black',
+		    //stroke: 'rgba(148, 20, 244, 1)', strokeWidth: 3,
+		    left: W * (point.x+10) / 20,
+		    top: H * (1-((point.y+rH/2) / rH)),
+		    originX: 'center', originY: 'center'
+		})
+	    );
 	});
-
 	
     }
 
     
-    calcCanvasDimentions(){
+    calcCanvasDimentions(doSetParent_ratioHW){
 	const W = window.innerWidth;
 	const H = window.innerHeight;
 	const LeftCol_W = 250;
@@ -233,6 +238,10 @@ class XYplane extends React.Component {
 	const width = W - 3*M - LeftCol_W;
 	const height = H - 2*M;
 
+	if(doSetParent_ratioHW){
+	    this.props.updateState({CreatePointset: {ratioHW: {$set: (height/width)}}});
+	}
+	
 	return {width, height};
     }
     
