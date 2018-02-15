@@ -30,7 +30,7 @@ class Points_App extends React.Component {
 		n: 10,
 		dist: undefined,
 		dist_nChg: 0,
-		points: [{x:1,y:1},{x:2,y:5},{x:3,y:3}],
+		points: [],
 		SprayOverlay: false,
 		SprayRadius: 1,
 		SprayRate: 12,

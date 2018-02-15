@@ -166,7 +166,11 @@ function CreatePointset(props){
 	  </div>
 	  
 	  <div className="p">
-	    <button>
+	    <button
+	       onClick={()=>{
+		   props.updateState({CreatePointset: {points: {$set: []}}});
+	      }}
+	       >
 	      Clear
 	    </button>
 	  </div>

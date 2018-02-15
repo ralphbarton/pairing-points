@@ -63,7 +63,7 @@ div.Select-control,
 }
 
 .CreatePointset > .content > .InputNumericWithSlider > input{
-  width: 40px;
+  width: 60px;
   font-size: 17px;
   font-weight: bold;
 }
