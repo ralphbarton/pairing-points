@@ -2,11 +2,16 @@ import React from 'react';
 
 import * as d3 from "d3";
 
+import GeneratePoints from './plain-js/GeneratePoints';
+
 class SprayOverlaySVG extends React.Component {
 
     constructor() {
 	super();
 	this.handleMouseMove = this.handleMouseMove.bind(this);
+	this.handleMouseDown = this.handleMouseDown.bind(this);
+	this.handleMouseUp =   this.handleMouseUp.bind(this);
+	this.sprayer_frameTick = this.sprayer_frameTick.bind(this);
     }
 
     handleMouseMove(e){
@@ -16,10 +21,17 @@ class SprayOverlaySVG extends React.Component {
 	});
     }
 
+    sprayer_frameTick(){
+	const canvas_BoundingBox = this.SVGelement.getBoundingClientRect();
+	const UI = this.props.state.CreatePointset;
+	const mouse = this.state;
+	
+	GeneratePoints.sprayerTick(canvas_BoundingBox, mouse, UI.SprayRadius, UI.SprayRate, this.props.updateState);
+    }
+
     handleMouseDown(e){
-	this.intervalID = setInterval(()=>{
-	    console.log("mouse-down!");
-	},100);
+	this.sprayer_frameTick();//instant reponse...
+	this.intervalID = setInterval(this.sprayer_frameTick, 200);
     }
 
     handleMouseUp(e){

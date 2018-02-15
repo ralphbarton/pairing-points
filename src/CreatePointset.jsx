@@ -32,8 +32,9 @@ function SprayOptions(props){
 	    <InputNumericWithSlider
 	       value={State.SprayRate}
 	       setValue={ (v)=>{props.updateState({CreatePointset: {SprayRate: {$set: v}}});}}
-	       min={2}
-	       max={60}
+	       min={10}
+	       max={80}
+	       step={10}
 	       description="spray rate:"
 	       unit="points per second"
 	      />

@@ -54,6 +54,28 @@ const GeneratePoints = {
 	}
 	
 	return null;
+    },
+
+    sprayerTick(canvas_BoundingBox, mouse, radius, rate, updateState){
+	const x = mouse.mouseX - canvas_BoundingBox.left;
+	const y = mouse.mouseY - canvas_BoundingBox.top;
+
+	const W = canvas_BoundingBox.width;
+	const H = canvas_BoundingBox.height;
+	const rH = 20 * (H/W);
+
+	//now convert mouse pixel-coordininates into XY-plane coordate system:
+	const mXYcoords = {
+	    x: (x/W - 0.5) * 20,
+	    y: (0.5 - y/H) * rH
+	};
+
+	const getOnePoint = ()=>{
+	    const unitCircle = GeneratePoints.UnitCircleRandUniform();
+	    return _.mapValues(unitCircle, (v,k)=>{return radius * v + mXYcoords[k];}); //transform mx+c
+	};
+
+	updateState({CreatePointset: {points: {$push: _.times(rate * 0.1 * 2, getOnePoint)}}});
     }
     
 };

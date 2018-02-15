@@ -33,7 +33,7 @@ class Points_App extends React.Component {
 		points: [],
 		SprayOverlay: false,
 		SprayRadius: 1,
-		SprayRate: 12,
+		SprayRate: 10,
 		ratioHW: undefined // canvas height div width
 	    },
 	    PointsSelection:{
