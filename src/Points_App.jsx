@@ -22,7 +22,7 @@ class Points_App extends React.Component {
 		tab: 'E' // 'E' export, 'I' import
 	    },
 	    GeneralModal:{
-		msgID: 1
+		msgID: 2
 	    },
 	    BriefcaseOpen:{
 		1: true,

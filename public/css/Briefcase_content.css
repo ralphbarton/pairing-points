@@ -3,14 +3,14 @@
 
 /* general*/
 
-.a{
+.ControlsColumn .a{
     text-decoration: underline;
     color: blue;
     font-size: 12px;
     cursor: pointer;
 }
 
-.p{
+.ControlsColumn .p{
   margin: 4px 0;
 }
 

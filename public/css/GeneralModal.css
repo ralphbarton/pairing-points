@@ -35,6 +35,7 @@
 }
 
 .GeneralModal .piccie-container{
+    margin-top: 30px;
     position: relative;
     align-self: center;
 }
@@ -59,7 +60,9 @@
 margin-bottom: 1em;
 }
 
-.GeneralModal .responses div{
+.GeneralModal .responses div,
+.GeneralModal a,
+.GeneralModal .a{
     width: 250px;
     text-align: center;
     text-decoration: underline;
@@ -69,6 +72,26 @@ margin-bottom: 1em;
 }
 
 
-.GeneralModal .responses div:hover{
+.GeneralModal .responses div:hover,
+.GeneralModal a:hover,
+.GeneralModal .a:hover{
     color: red;
+}
+
+.GeneralModal .box.msgID2 .a{
+    align-self: center;
+    margin: 20px;
+    margin-bottom: 80px;
+}
+
+.GeneralModal .box.msgID2 .s{
+    align-self: right;
+    width: unset;
+    font-size: 12px;
+    padding: 6px 2px;
+}
+
+.GeneralModal .box.msgID2 a{
+    margin-left: 5px;
+    text-decoration-style: solid;
 }
