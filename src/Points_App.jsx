@@ -4,6 +4,7 @@ import update from 'immutability-helper';
 
 
 import ImportExportModal from './ImportExportModal';
+import GeneralModal from './GeneralModal';
 import ControlsColumn from './ControlsColumn';
 import XYplane from './XYplane';
 
@@ -20,10 +21,13 @@ class Points_App extends React.Component {
 		visible: false,
 		tab: 'E' // 'E' export, 'I' import
 	    },
+	    GeneralModal:{
+		msgID: 1
+	    },
 	    BriefcaseOpen:{
 		1: true,
 		2: false,
-		3: true,
+		3: false,
 		4: false
 	    },
 	    CreatePointset: {
@@ -65,8 +69,9 @@ class Points_App extends React.Component {
 	return (
 	    <div className="Points_App">
 
-	      {/* 1. The Modal overlay (it may or may not actually be visible) */}
+	      {/* 1. Modal overlays (may or may not actually be visible) */}
 	      <ImportExportModal state={this.state} updateState={this.updateState} />
+	      <GeneralModal state={this.state} updateState={this.updateState} />
 	      
 	      {/* 2. Controls Area */}
 	      <ControlsColumn state={this.state} updateState={this.updateState} />

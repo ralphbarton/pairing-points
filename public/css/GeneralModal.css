@@ -1,0 +1,36 @@
+/* GeneralModal.css */
+
+.GeneralModal{
+  background: rgba(0,0,0,0.65);
+}
+
+.GeneralModal .box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.GeneralModal .box{
+    background: #eadaaa;
+
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 8px black;
+    padding: 0em 1em;
+    border: 5px solid #9414F4;
+}
+
+.GeneralModal img{
+    opacity: 0.7;
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px 1px BLACK;
+}
+
+.GeneralModal .responses{
+    display: flex;
+}
+
+.GeneralModal .responses div{
+    padding: 1em 4em;
+}
