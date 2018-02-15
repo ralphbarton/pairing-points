@@ -15,9 +15,28 @@ class SprayOverlaySVG extends React.Component {
 	    mouseY: e.pageY
 	});
     }
+
+    handleMouseDown(e){
+	this.intervalID = setInterval(()=>{
+	    console.log("mouse-down!");
+	},100);
+    }
+
+    handleMouseUp(e){
+	clearInterval(this.intervalID);
+    }
     
-    componentDidMount()   { document.addEventListener('mousemove', this.handleMouseMove);    }
-    componentWillUnmount() { document.removeEventListener('mousemove', this.handleMouseMove); }
+    componentDidMount(){
+	document.addEventListener('mousemove', this.handleMouseMove);
+	document.addEventListener('mousedown', this.handleMouseDown);
+	document.addEventListener('mouseup',   this.handleMouseUp);
+    }
+
+    componentWillUnmount() {
+	document.removeEventListener('mousemove', this.handleMouseMove);
+	document.removeEventListener('mousedown', this.handleMouseDown);
+	document.removeEventListener('mouseup',   this.handleMouseUp);
+    }
     
     componentDidUpdate(){
 

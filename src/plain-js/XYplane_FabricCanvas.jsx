@@ -1,4 +1,3 @@
-import React from 'react';
 import {fabric}  from 'fabric';
 
 const XYplane_FabricCanvas = {

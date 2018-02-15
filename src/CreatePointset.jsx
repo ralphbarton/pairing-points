@@ -1,66 +1,13 @@
 import React from 'react';
 
-import Briefcase from './Briefcase';
-
 import Select from 'react-select';
 
+import Briefcase from './Briefcase';
 import InputNumericWithSlider from './InputNumericWithSlider';
 
-var _ = require('lodash');
+import GeneratePoints from './plain-js/GeneratePoints';
 
-function UnitCircleRandUniform(){
-    while(1){
-	const x = 2*Math.random()-1;
-	const y = 2*Math.random()-1;
-	if((x**2 + y**2) <= 1){return {x,y};}
-    }
-};
 
-function generateRandomlyDistributedPoints(State){
-
-    /*
-     distVal:
-     0 - 'Uniform (small circle)'
-     1 - 'Uniform (large circle)'
-     2 - 'Uniform (square)'
-     3 - 'Uniform (visible space)'
-     4 - '2D Gaussian (truncated)'
-     */
-    
-    if(!State.dist){return null;}
-    const dsV = State.dist.value;
-    
-    if((dsV === 0)||(dsV === 1)){
-	//circle radius 4 or 8
-	return _.times(2*State.n, ()=>{
-	    const unit = UnitCircleRandUniform();
-	    return _.mapValues(unit, a=>{return (dsV+1)*4*a;});
-	});
-
-    }
-
-    if(dsV === 2){
-	return _.times(2*State.n, ()=>{
-	    return {
-		x: 8*Math.random()-4,
-		y: 8*Math.random()-4
-	    };
-	});
-    }
-
-    if(dsV === 3){
-	const rH = 20 * State.ratioHW;
-	return _.times(2*State.n, ()=>{
-	    return {
-		x: 20*Math.random()-10,
-		y: rH*(Math.random()-0.5)
-	    };
-	});
-    }
-    
-    console.log("ratioHW",);
-    return null;
-};
 
 function SprayOptions(props){
 
@@ -103,9 +50,6 @@ function SprayOptions(props){
 	</div>
     );
 }
-
-
-
 
 
 
@@ -156,7 +100,7 @@ function CreatePointset(props){
 	  <div className="p">
 	    <button className="generate"
 		    onClick={()=>{
-			const newPoints = generateRandomlyDistributedPoints(State);
+			const newPoints = GeneratePoints.distribute(State);
 			if(!newPoints){return;}
 			props.updateState({CreatePointset: {points: {$set: newPoints}}});
 	      }}
