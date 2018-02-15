@@ -14,23 +14,61 @@
 
 .GeneralModal .box{
     background: #eadaaa;
-
     border-radius: 20px;
     box-shadow: 0px 0px 30px 8px black;
     padding: 0em 1em;
     border: 5px solid #9414F4;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 22px;
 }
 
-.GeneralModal img{
+.GeneralModal .title{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 1em 0;
     opacity: 0.7;
-    border-radius: 5px;
-    box-shadow: inset 0 0 6px 1px BLACK;
 }
+
+.GeneralModal p{
+    margin: 0.5em 0;
+}
+
+.GeneralModal .piccie-container{
+    position: relative;
+    align-self: center;
+}
+
+.GeneralModal .piccie-container > *{
+    border-radius: 5px;
+}
+
+.GeneralModal .piccie-container > div{
+    width: 450px;
+    height: 438px;
+    position: absolute;
+    top: 0;
+        box-shadow: inset 0 0 10px 10px #eadaaa;
+}
+
+
 
 .GeneralModal .responses{
     display: flex;
+        justify-content: center;
+margin-bottom: 1em;
 }
 
 .GeneralModal .responses div{
-    padding: 1em 4em;
+    width: 250px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-style: double;
+    color: #9414F4;
+    cursor: default;
+}
+
+
+.GeneralModal .responses div:hover{
+    color: red;
 }

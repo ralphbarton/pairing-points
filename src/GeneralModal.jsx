@@ -20,7 +20,10 @@ function BodyJSX(props) {
 	  Can n lines be drawn between pairs of points so that all points are paired with no lines crossing?
 	  </p>
 
-	<img src={Piccie} alt="" />
+	  <div className="piccie-container">
+	    <img src={Piccie} alt="" />
+	    <div  />
+	  </div>
 	  
 	  <div className="responses">
 	  
