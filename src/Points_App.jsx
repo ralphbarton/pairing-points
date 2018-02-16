@@ -22,13 +22,13 @@ class Points_App extends React.Component {
 		tab: 'E' // 'E' export, 'I' import
 	    },
 	    GeneralModal:{
-		msgID: 2
+		msgID: 1
 	    },
 	    BriefcaseOpen:{
 		1: true,
 		2: false,
 		3: false,
-		4: false
+		4: true
 	    },
 	    CreatePointset: {
 		n: 10,

@@ -2,6 +2,7 @@
   "name": "pairing-points",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://www.ralphbarton.co.uk/PairingPoints",
   "dependencies": {
     "d3": "^4.13.0",
     "d3-selection-multi": "^1.0.1",
