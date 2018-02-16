@@ -69,7 +69,7 @@ function BodyJSX(props) {
 	      </div>
 	      <div className="s">
 		It's open source -
-		<a href="https://github.com/ralphbarton">
+		<a href="https://github.com/ralphbarton/pairing-points">
 		  see the source-code on Github
 		</a>
 	      </div>
