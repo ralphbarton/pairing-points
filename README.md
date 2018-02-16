@@ -1,6 +1,6 @@
 # Pairing Points
 
-A web-app build around the maths problem:
+A web-app built around the maths problem:
 
 >There are 2n points in the XY plane, with no 3 points collinear.
 >
@@ -15,7 +15,7 @@ Tools & libraries used:
 **[React](https://reactjs.org/)** - A JavaScript library for designing user interfaces, created by Facebook. This whole app is a user interface, and it is broken down into _React Components_. Thus React provides the structure of the project.
 
 **[Create React App](https://github.com/facebook/create-react-app)** - a
-command line build environment for React websites. Accelerates getting started with React.
+command-line build-environment for React websites. Accelerates getting started with React. It's built around [Node JS](https://nodejs.org/en/) and all sorts of open-souce modules can easily be pulled into projects using [npm](https://www.npmjs.com/). Also compiles and bundles your JavaScript, as it uses [Webpack](https://webpack.js.org/), preconfigured, under-the-hood. 
 
 **[D3](https://d3js.org/)** - a powerful library for data visualisation and graphing. I'm using a tiny bit of it here, its ability to draw [axes](https://github.com/d3/d3-axis).
 
