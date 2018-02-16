@@ -12,14 +12,14 @@ Demo: [here](http://ralphbarton.co.uk/PairingPoints) _(Project incomplete. It's 
 
 Tools & libraries used:
 
-**[React](https://reactjs.org/)** - A JavaScript library for designing user interfaces, created by Facebook. This whole app is a user interface, and it is broken down into _React Components_. Thus, React provides the structure of the project.
+**[React](https://reactjs.org/)** - A JavaScript library for designing user interfaces, created by Facebook. This whole app is a user interface, and it is broken down into _React Components_. Thus React provides the structure of the project.
 
-**[Create React App](https://github.com/facebook/create-react-app)** - provides a
-command line build environment for React websites. Accelerates getting started on projects in React.
+**[Create React App](https://github.com/facebook/create-react-app)** - a
+command line build environment for React websites. Accelerates getting started with React.
 
-**[D3](https://d3js.org/)** - a powerful library for data visualisation and graphing. I'm using a tiny bit of it here: its ability to draw [axes](https://github.com/d3/d3-axis).
+**[D3](https://d3js.org/)** - a powerful library for data visualisation and graphing. I'm using a tiny bit of it here, its ability to draw [axes](https://github.com/d3/d3-axis).
 
-**[Fabric JS](http://fabricjs.com/)** - provides an interactive HTML 5 canvas on which 2D shapes can be moved, dragged, resized and more (its "[interactive object model](http://fabricjs.com/fabric-intro-part-1)"). The library lets you drop in a similar interface to creating slides in PowerPoint.
+**[Fabric JS](http://fabricjs.com/)** - provides an interactive HTML 5 canvas on which 2D shapes can be moved, dragged, resized and more (its "[interactive object model](http://fabricjs.com/fabric-intro-part-1)"). The library lets you drop in an interface that resembles MS PowerPoint's way of similar interface of laying out slides.
 
 **[react-animation-frame](https://github.com/jamesseanwright/react-animation-frame)** - when using JavaScript to generate individual frames of an animation, the function [`requestAnimationFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) allows the programmer to take advantage of the browser's specific way of dealing with animation. This includes choosing the frame rate, potentially matching it the refresh rate of the devices's screen and turning off animation when the page is not in view, to save energy. This library integrates `requestAnimationFrame()` with React. It's a [higher-order component](https://reactjs.org/docs/higher-order-components.html) which adds (effectively) an extra lifecycle method to some component for animation - to which it is applied.
 
