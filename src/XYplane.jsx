@@ -27,6 +27,14 @@ class XYplane extends React.Component {
 	this.canvas = XYplane_FabricCanvas.regenerate(this.plainCanvasElement, this.canvas, this.state.size, points);
     }
 
+    addNewPoints(nDiscard){
+	const newPoints = this.props.state.CreatePointset.points.slice(nDiscard-1);
+
+	//mutates the fabric canvas passed (1st param)
+	XYplane_FabricCanvas.addPoints(this.canvas, this.state.size, newPoints);
+    }
+    
+
     componentDidMount(){
 	this.regenFabricCanvas();
 	this.calcCanvasDimentions(true);//this function call is to set aspect ratio in parent
@@ -60,10 +68,17 @@ class XYplane extends React.Component {
 	}
 
 	// 3. The underlying pointset has changed. Regenerate the canvas (maybe optimise this later)
-	const pointsChange = this.props.state.CreatePointset.points !== prevProps.state.CreatePointset.points;
+	const pointsChange =   this.props.state.CreatePointset.points !== prevProps.state.CreatePointset.points;
+	const doPointsRedraw = this.props.state.CreatePointset.points_nRedraw !== prevProps.state.CreatePointset.points_nRedraw;
 	if( pointsChange ){
-	    this.regenFabricCanvas();
-	    return;
+	    if( doPointsRedraw ){
+		console.log("full redraw");
+		this.regenFabricCanvas();
+	    }else{
+		console.log("efficient redraw");
+		const nDiscard = prevProps.state.CreatePointset.points.length;
+		this.addNewPoints(nDiscard);
+	    }
 	}
 	
     }

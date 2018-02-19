@@ -22,7 +22,7 @@ class Points_App extends React.Component {
 		tab: 'E' // 'E' export, 'I' import
 	    },
 	    GeneralModal:{
-		msgID: 1
+		msgID: null //the modal shown at startup. value 1 is a good choice (means state the math problem)
 	    },
 	    BriefcaseOpen:{
 		1: true,
@@ -35,6 +35,7 @@ class Points_App extends React.Component {
 		dist: undefined,
 		dist_nChg: 0,
 		points: [],
+		points_nRedraw: 0,
 		SprayOverlay: false,
 		SprayRadius: 1,
 		SprayRate: 10,

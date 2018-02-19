@@ -7,7 +7,7 @@ import InputNumericWithSlider from './InputNumericWithSlider';
 
 import GeneratePoints from './plain-js/GeneratePoints';
 
-
+const $FnInc = x=>{return x+1;};
 
 function SprayOptions(props){
 
@@ -84,7 +84,7 @@ function CreatePointset(props){
 	       onChange={(sel) => {
 		   props.updateState({CreatePointset: {
 		       dist: {$set: sel},
-		       dist_nChg: {$apply: x=>{return x+1;}}
+		       dist_nChg: $FnInc // shorthand: omit the {$apply: ...}
 		   }});
 	      }}
 	      options={[
@@ -103,7 +103,10 @@ function CreatePointset(props){
 		    onClick={()=>{
 			const newPoints = GeneratePoints.distribute(State);
 			if(!newPoints){return;}
-			props.updateState({CreatePointset: {points: {$set: newPoints}}});
+			props.updateState({CreatePointset: {
+			    points: {$set: newPoints},
+			    points_nRedraw: $FnInc
+			}});
 	      }}
 		    >
 	      Randomly Generate 2n Points
@@ -113,7 +116,7 @@ function CreatePointset(props){
 	  <div className="p">
 	    <button
 	       onClick={()=>{
-		   props.updateState({CreatePointset: {points: {$set: []}}});
+		   props.updateState({CreatePointset: {points: {$set: []}}, points_nRedraw: $FnInc});
 	      }}
 	       >
 	      Clear

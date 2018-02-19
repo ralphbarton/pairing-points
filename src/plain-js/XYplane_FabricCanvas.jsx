@@ -24,6 +24,15 @@ const XYplane_FabricCanvas = {
 
 	canvas.add(circle, triangle);
 
+	this.addPoints(canvas, size, points);
+	
+	return canvas;
+	
+    },
+
+    
+    addPoints(canvas, size, points){
+
 	const W = size.width;
 	const H = size.height;
 	const rH = 20 * H/W;
@@ -41,8 +50,6 @@ const XYplane_FabricCanvas = {
 		})
 	    );
 	});
-
-	return canvas;
 	
     },
 
