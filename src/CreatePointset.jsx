@@ -32,9 +32,9 @@ function SprayOptions(props){
 	    <InputNumericWithSlider
 	       value={State.SprayRate}
 	       setValue={ (v)=>{props.updateState({CreatePointset: {SprayRate: {$set: v}}});}}
-	       min={10}
-	       max={80}
-	       step={10}
+	       min={20}
+	       max={100}
+	       step={20}
 	       description="spray rate:"
 	       unit="points per second"
 	      />
@@ -116,7 +116,7 @@ function CreatePointset(props){
 	  <div className="p">
 	    <button
 	       onClick={()=>{
-		   props.updateState({CreatePointset: {points: {$set: []}}, points_nRedraw: $FnInc});
+		   props.updateState({CreatePointset: {points: {$set: []}, points_nRedraw: $FnInc}});
 	      }}
 	       >
 	      Clear

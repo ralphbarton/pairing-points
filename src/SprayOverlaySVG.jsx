@@ -25,13 +25,14 @@ class SprayOverlaySVG extends React.Component {
 	const canvas_BoundingBox = this.SVGelement.getBoundingClientRect();
 	const UI = this.props.state.CreatePointset;
 	const mouse = this.state;
+	const n_points_per_tick = UI.SprayRate * 0.1;// this value needs to be even
 	
-	GeneratePoints.sprayerTick(canvas_BoundingBox, mouse, UI.SprayRadius, UI.SprayRate, this.props.updateState);
+	GeneratePoints.sprayerTick(canvas_BoundingBox, mouse, UI.SprayRadius, n_points_per_tick, this.props.updateState);
     }
 
     handleMouseDown(e){
 	this.sprayer_frameTick();//instant reponse...
-	this.intervalID = setInterval(this.sprayer_frameTick, 200);
+	this.intervalID = setInterval(this.sprayer_frameTick, 100);
     }
 
     handleMouseUp(e){

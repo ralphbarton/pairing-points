@@ -41,7 +41,7 @@ class Points_App extends React.Component {
 		points_nRedraw: 0,
 		SprayOverlay: false,
 		SprayRadius: 1,
-		SprayRate: 10,
+		SprayRate: 20,
 		ratioHW: undefined // canvas height div width
 	    },
 	    PointsSelection:{
@@ -60,7 +60,7 @@ class Points_App extends React.Component {
 		axes: true
 	    },
 	    MobileWarning:{
-		isMobile: true || userAgent.parse_user_agent().mobile, //this throws away much info...
+		isMobile: userAgent.parse_user_agent().mobile, //this throws away much info...
 		useMobileAnyway: false
 	    }
 	};

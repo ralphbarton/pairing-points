@@ -56,7 +56,7 @@ const GeneratePoints = {
 	return null;
     },
 
-    sprayerTick(canvas_BoundingBox, mouse, radius, rate, updateState){
+    sprayerTick(canvas_BoundingBox, mouse, radius, n_points_per_tick, updateState){
 	const x = mouse.mouseX - canvas_BoundingBox.left;
 	const y = mouse.mouseY - canvas_BoundingBox.top;
 
@@ -75,7 +75,7 @@ const GeneratePoints = {
 	    return _.mapValues(unitCircle, (v,k)=>{return radius * v + mXYcoords[k];}); //transform mx+c
 	};
 
-	updateState({CreatePointset: {points: {$push: _.times(rate * 0.1 * 2, getOnePoint)}}});
+	updateState({CreatePointset: {points: {$push: _.times(n_points_per_tick, getOnePoint)}}});
     }
     
 };
