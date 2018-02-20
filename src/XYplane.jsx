@@ -28,7 +28,8 @@ class XYplane extends React.Component {
     }
 
     addNewPoints(nDiscard){
-	const newPoints = this.props.state.CreatePointset.points.slice(nDiscard-1);
+	const sliceIndex = Math.max(0, nDiscard-1); 
+	const newPoints = this.props.state.CreatePointset.points.slice(sliceIndex);
 
 	//mutates the fabric canvas passed (1st param)
 	XYplane_FabricCanvas.addPoints(this.canvas, this.state.size, newPoints);
@@ -71,11 +72,12 @@ class XYplane extends React.Component {
 	const pointsChange =   this.props.state.CreatePointset.points !== prevProps.state.CreatePointset.points;
 	const doPointsRedraw = this.props.state.CreatePointset.points_nRedraw !== prevProps.state.CreatePointset.points_nRedraw;
 	if( pointsChange ){
+//	    console.log("pointsChange", this.props.state.CreatePointset.points.length, prevProps.state.CreatePointset.points.length);
 	    if( doPointsRedraw ){
-		console.log("full redraw");
+//		console.log("full redraw");
 		this.regenFabricCanvas();
 	    }else{
-		console.log("efficient redraw");
+//		console.log("efficient redraw");
 		const nDiscard = prevProps.state.CreatePointset.points.length;
 		this.addNewPoints(nDiscard);
 	    }

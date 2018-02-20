@@ -31,6 +31,7 @@ class SprayOverlaySVG extends React.Component {
     }
 
     handleMouseDown(e){
+	if(e.target.parentElement !== this.SVGelement){return;}//if the click did not land in correct area
 	this.sprayer_frameTick();//instant reponse...
 	this.intervalID = setInterval(this.sprayer_frameTick, 100);
     }

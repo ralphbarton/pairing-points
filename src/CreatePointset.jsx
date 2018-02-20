@@ -105,7 +105,8 @@ function CreatePointset(props){
 			if(!newPoints){return;}
 			props.updateState({CreatePointset: {
 			    points: {$set: newPoints},
-			    points_nRedraw: $FnInc
+			    points_nRedraw: $FnInc,
+			    SprayOverlay: {$set: false} // as a side effect close spray overlay
 			}});
 	      }}
 		    >
