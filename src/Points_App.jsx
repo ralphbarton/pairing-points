@@ -8,6 +8,9 @@ import GeneralModal from './GeneralModal';
 import ControlsColumn from './ControlsColumn';
 import XYplane from './XYplane';
 
+import userAgent from './plain-js/userAgent';
+import MobileWarning from './MobileWarning';
+
 import 'react-select/dist/react-select.css';
 
 //var _ = require('lodash');
@@ -55,9 +58,14 @@ class Points_App extends React.Component {
 	    },
 	    DisplaySettings: {
 		axes: true
+	    },
+	    MobileWarning:{
+		isMobile: true || userAgent.parse_user_agent().mobile, //this throws away much info...
+		useMobileAnyway: false
 	    }
 	};
 	this.updateState = this.updateState.bind(this);
+	
     }
 
     updateState($update){
@@ -66,6 +74,11 @@ class Points_App extends React.Component {
     
     
     render() {
+
+	const Mob = this.state.MobileWarning;
+	if(Mob.isMobile && !Mob.useMobileAnyway){
+	    return <MobileWarning updateState={this.updateState} />;
+	}
 
 	return (
 	    <div className="Points_App">

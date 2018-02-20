@@ -41,3 +41,13 @@ body {
     width: 250px;
     margin-right: 0;
 }
+
+.MobileWarning{
+    padding: 10px;
+}
+
+.MobileWarning .a{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
