@@ -5,6 +5,7 @@ import SprayOverlaySVG from './SprayOverlaySVG';
 
 import XYplane_FabricCanvas from './plain-js/XYplane_FabricCanvas';
 import XYplane_flashPurpleDistributionShape from './plain-js/XYplane_flashPurpleDistributionShape';
+import FabricCanvasHandlers from './plain-js/FabricCanvasHandlers';
 
 const ReactAnimationFrame = require('react-animation-frame');
 
@@ -24,7 +25,14 @@ class XYplane extends React.Component {
 
     regenFabricCanvas(){
 	const points = this.props.state.CreatePointset.points;
+
+	// this remakes the DOM element into a fabric canvas
 	this.canvas = XYplane_FabricCanvas.regenerate(this.plainCanvasElement, this.canvas, this.state.size, points);
+
+	// this re-adds the handler functions for Fabric defined events (selections etc.)
+	// It's at this level rather than being part of the parent function call to avoid an excessive list of passed params
+	FabricCanvasHandlers.AddAll(this.canvas, this.props.state, this.props.updateState);
+
     }
 
     addNewPoints(nDiscard){

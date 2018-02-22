@@ -22,7 +22,7 @@ function PointsSelection(props) {
 	   >
 
 	  <div className="p">
-	    {30} Points selected
+	    {State.pointsByIndex.length} Points selected
 	    <button className="delete">
 	      Delete
 	    </button>

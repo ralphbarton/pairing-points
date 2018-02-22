@@ -1,22 +1,48 @@
 //import {fabric}  from 'fabric';
 
+var _ = require('lodash');
+
 const FabricCanvasHandlers = {
 
     handle_ObjectSelected(options) {
-	console.log("Fabric selection event");
-    },
 
-    handle_ObjectModified(options) {
-	console.log("Fabric modification event");
-    },
-
-    handle_SelectionCleared(options) {
-	console.log("Fabric selection cleared event");
+	// 1. get UIDs list of the items selected.
+	const S = options.target;
+	const multiple = S._objects !== undefined;
+	const uidArr = multiple ? _.map( S._objects, 'top') : [1]; // this is not an array of UIDs!
+	
+	// 1. Maximise the "Points Selection" Briefcase
+	this.updateState({
+	    BriefcaseOpen: {2: {$set: true}},
+	    PointsSelection: {
+		pointsByIndex: {$set: uidArr}
+	    }
+	});
     },
 
     
-    AddAll(canvas){
+    handle_ObjectModified(options) {
+	// placeholder handler content...
+	console.log("Fabric modification event");
+    },
 
+    
+    handle_SelectionCleared(options) {
+
+	// 1. Minimise the "Points Selection" Briefcase
+	this.updateState({
+	    BriefcaseOpen: {2: {$set: false}},
+	    PointsSelection: {
+		pointsByIndex: {$set: []}
+	    }
+	});
+    },
+
+    
+    AddAll(canvas, state, updateState){
+
+	this.state = state;
+	this.updateState = updateState;
 
 	// 1. Add handlers
 

@@ -1,7 +1,5 @@
 import {fabric}  from 'fabric';
 
-import FabricCanvasHandlers from './FabricCanvasHandlers';
-
 const XYplane_FabricCanvas = {
 
     
@@ -16,19 +14,19 @@ const XYplane_FabricCanvas = {
 
 	//for debug interaction in console:
 	window.canvas = canvas;
-	
-	var circle = new fabric.Circle({
-	    radius: 100, fill: '#F90', left: 100, top: 130
-	});
-	var triangle = new fabric.Triangle({
-	    width: 160, height: 220, angle: 30, fill: '#29A', left: 350, top: 20
-	});
 
-	canvas.add(circle, triangle);
+	/*
+	 var circle = new fabric.Circle({
+	 radius: 100, fill: '#F90', left: 100, top: 130
+	 });
+	 var triangle = new fabric.Triangle({
+	 width: 160, height: 220, angle: 30, fill: '#29A', left: 350, top: 20
+	 });
+
+	 canvas.add(circle, triangle);
+	 */
 
 	this.addPoints(canvas, size, points);
-
-	FabricCanvasHandlers.AddAll(canvas);
 	
 	return canvas;
 	
@@ -65,13 +63,18 @@ const XYplane_FabricCanvas = {
 	//	const progress2 = progress % 100; //Mod100
 	//	this.bar.style.width = `${progress2}%`;
 
+	/*
 	const oldTop = canvas._objects[0].top;
 	if(oldTop>100){this.incr = -0.1;}
 	if(oldTop<30) {this.incr = +0.1;}
 	
 	canvas._objects[0].setTop(oldTop + this.incr);
 	canvas._objects[0].setRadius(oldTop/3);
+	 */
+
+	// note: continuous calling of this function is needed for added and removed points to be reflected on screen
 	canvas.renderAll();
+
 
 	//	 endAnimation(); // API of the higher order component. I don't think I ever need to do this
 

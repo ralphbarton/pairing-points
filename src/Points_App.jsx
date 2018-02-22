@@ -45,6 +45,7 @@ class Points_App extends React.Component {
 		ratioHW: undefined // canvas height div width
 	    },
 	    PointsSelection:{
+		pointsByIndex: [],
 		copy_xAxis: false,
 		copy_yAxis: false,
 		copy_translate: false,
