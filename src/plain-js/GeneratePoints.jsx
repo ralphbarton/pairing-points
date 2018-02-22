@@ -24,31 +24,41 @@ const GeneratePoints = {
 	
 	if(!State.dist){return null;}
 	const dsV = State.dist.value;
+
+	var uidCount = State.points_uidCount;
 	
 	if((dsV === 0)||(dsV === 1)){
 	    //circle radius 4 or 8
 	    return _.times(2*State.n, ()=>{
 		const unit = this.UnitCircleRandUniform();
-		return _.mapValues(unit, a=>{return (dsV+1)*4*a;});
+		return {
+		    x: (dsV+1)*4*unit.x,
+		    y: (dsV+1)*4*unit.y,
+		    uid: uidCount++
+		};
 	    });
 
 	}
 
 	if(dsV === 2){
+	    // square
 	    return _.times(2*State.n, ()=>{
 		return {
 		    x: 8*Math.random()-4,
-		    y: 8*Math.random()-4
+		    y: 8*Math.random()-4,
+		    uid: uidCount++
 		};
 	    });
 	}
 
 	if(dsV === 3){
+	    // full screen
 	    const rH = 20 * State.ratioHW;
 	    return _.times(2*State.n, ()=>{
 		return {
 		    x: 20*Math.random()-10,
-		    y: rH*(Math.random()-0.5)
+		    y: rH*(Math.random()-0.5),
+		    uid: uidCount++
 		};
 	    });
 	}
@@ -56,7 +66,7 @@ const GeneratePoints = {
 	return null;
     },
 
-    sprayerTick(canvas_BoundingBox, mouse, radius, n_points_per_tick, updateState){
+    sprayerTick(canvas_BoundingBox, mouse, radius, n_points_per_tick, points_uidCount, updateState){
 	const x = mouse.mouseX - canvas_BoundingBox.left;
 	const y = mouse.mouseY - canvas_BoundingBox.top;
 
@@ -70,12 +80,18 @@ const GeneratePoints = {
 	    y: (0.5 - y/H) * rH
 	};
 
+	var uidCount = points_uidCount;
 	const getOnePoint = ()=>{
 	    const unitCircle = GeneratePoints.UnitCircleRandUniform();
-	    return _.mapValues(unitCircle, (v,k)=>{return radius * v + mXYcoords[k];}); //transform mx+c
+	    const scaledCircle = _.mapValues(unitCircle, (v,k)=>{return radius * v + mXYcoords[k];}); //transform mx+c
+	    scaledCircle.uid = uidCount++;
+	    return scaledCircle;
 	};
 
-	updateState({CreatePointset: {points: {$push: _.times(n_points_per_tick, getOnePoint)}}});
+	updateState({CreatePointset: {
+	    points: {$push: _.times(n_points_per_tick, getOnePoint)},
+	    points_uidCount: cnt => {return cnt + n_points_per_tick;}//increment the counter
+	}});
     }
     
 };

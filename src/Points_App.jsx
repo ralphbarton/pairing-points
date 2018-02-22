@@ -39,6 +39,7 @@ class Points_App extends React.Component {
 		dist_nChg: 0,
 		points: [],
 		points_nRedraw: 0,
+		points_uidCount: 0,
 		SprayOverlay: false,
 		SprayRadius: 1,
 		SprayRate: 20,

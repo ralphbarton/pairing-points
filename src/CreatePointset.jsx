@@ -106,6 +106,7 @@ function CreatePointset(props){
 			props.updateState({CreatePointset: {
 			    points: {$set: newPoints},
 			    points_nRedraw: $FnInc,
+			    points_uidCount: cnt => {return cnt+State.n*2;},
 			    SprayOverlay: {$set: false} // as a side effect close spray overlay
 			}});
 	      }}
