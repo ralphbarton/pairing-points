@@ -6,6 +6,10 @@ function PointsSelection(props) {
 
     const State = props.state.PointsSelection;
     const set = $chg => {props.updateState({PointsSelection: $chg});};
+
+    const nPoints = props.state.CreatePointset.points.length;
+    const normalMsg = "use the mouse to make a selection of points in the XY plane...";
+    const emptyMsg =  "create some points on the XY plane, then make a selection with the mouse";
     
     return (
 	<Briefcase
@@ -13,8 +17,8 @@ function PointsSelection(props) {
 	   className="PointsSelection"
 	   title="Points Selection"
 	   open={props.open}
-	   queryMsg="use the mouse to make a selection of points in the XY plane..."
-	   noOpen={true}
+	   queryMsg={nPoints>0?normalMsg:emptyMsg}
+	   noOpen={true} //this means the users does not get an arrow to open and close
 	   >
 
 	  <div className="p">

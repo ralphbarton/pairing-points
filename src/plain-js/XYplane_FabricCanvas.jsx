@@ -1,5 +1,7 @@
 import {fabric}  from 'fabric';
 
+import FabricCanvasHandlers from './FabricCanvasHandlers';
+
 const XYplane_FabricCanvas = {
 
     
@@ -25,6 +27,8 @@ const XYplane_FabricCanvas = {
 	canvas.add(circle, triangle);
 
 	this.addPoints(canvas, size, points);
+
+	FabricCanvasHandlers.AddAll(canvas);
 	
 	return canvas;
 	
