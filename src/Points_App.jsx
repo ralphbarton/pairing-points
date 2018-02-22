@@ -29,7 +29,6 @@ class Points_App extends React.Component {
 	    },
 	    BriefcaseOpen:{
 		1: true,
-		2: false,
 		3: false,
 		4: true
 	    },
@@ -46,7 +45,7 @@ class Points_App extends React.Component {
 		ratioHW: undefined // canvas height div width
 	    },
 	    PointsSelection:{
-		pointsByIndex: [],
+		pointsByUid: [],
 		copy_xAxis: false,
 		copy_yAxis: false,
 		copy_translate: false,

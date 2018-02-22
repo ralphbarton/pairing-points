@@ -9,13 +9,12 @@ const FabricCanvasHandlers = {
 	// 1. get UIDs list of the items selected.
 	const S = options.target;
 	const multiple = S._objects !== undefined;
-	const uidArr = multiple ? _.map( S._objects, 'top') : [1]; // this is not an array of UIDs!
+	const uidArr = multiple ? _.map( S._objects, 'uid') : [S.uid]; // this is not an array of UIDs!
 	
 	// 1. Maximise the "Points Selection" Briefcase
 	this.updateState({
-	    BriefcaseOpen: {2: {$set: true}},
 	    PointsSelection: {
-		pointsByIndex: {$set: uidArr}
+		pointsByUid: {$set: uidArr}
 	    }
 	});
     },
@@ -31,9 +30,8 @@ const FabricCanvasHandlers = {
 
 	// 1. Minimise the "Points Selection" Briefcase
 	this.updateState({
-	    BriefcaseOpen: {2: {$set: false}},
 	    PointsSelection: {
-		pointsByIndex: {$set: []}
+		pointsByUid: {$set: []}
 	    }
 	});
     },

@@ -2,6 +2,10 @@ import React from 'react';
 
 import Briefcase from './Briefcase';
 
+var _ = require('lodash');
+
+const $FnInc = x=>{return x+1;};
+
 function PointsSelection(props) {
 
     const State = props.state.PointsSelection;
@@ -22,8 +26,22 @@ function PointsSelection(props) {
 	   >
 
 	  <div className="p">
-	    {State.pointsByIndex.length} Points selected
-	    <button className="delete">
+	    {State.pointsByUid.length} Points selected
+	    <button className="delete"
+		    onClick={()=>{
+
+			// Create a new array of only non-selected points. Invoke rerender.
+			// non selected points will not be found in PointsSelectionpointsByUid
+			const keepPoint = p=>{return _.indexOf(State.pointsByUid, p.uid) === -1;};
+			const filteredPoints = _.filter(props.state.CreatePointset.points, keepPoint);
+
+			props.updateState({CreatePointset: {
+			    points: {$set: filteredPoints},
+			    points_nRedraw: $FnInc
+//			    points_uidCount: cnt => {return cnt+State.n*2;},
+			}});
+	      }}
+	      >
 	      Delete
 	    </button>
 	  </div>

@@ -32,8 +32,7 @@ function ControlsColumn(props) {
 
 	  <PointsSelection
 	     id="2"
-	     open={isOpen[2]}
-	     toggleOpen={HofTog(2)}
+	     open={props.state.PointsSelection.pointsByUid.length > 0}
 	     state={props.state}
 	     updateState={props.updateState}
 	     />

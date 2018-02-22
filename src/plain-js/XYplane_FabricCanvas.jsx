@@ -48,7 +48,8 @@ const XYplane_FabricCanvas = {
 		    //stroke: 'rgba(148, 20, 244, 1)', strokeWidth: 3,
 		    left: W * (point.x+10) / 20,
 		    top: H * (1-((point.y+rH/2) / rH)),
-		    originX: 'center', originY: 'center'
+		    originX: 'center', originY: 'center',
+		    uid: point.uid // this is a non-fabric property...
 		})
 	    );
 	});
