@@ -14,6 +14,17 @@ function PointsSelection(props) {
     const nPoints = props.state.CreatePointset.points.length;
     const normalMsg = "use the mouse to make a selection of points in the XY plane...";
     const emptyMsg =  "create some points on the XY plane, then make a selection with the mouse";
+
+    const inSelection = p=>{return _.indexOf(State.pointsByUid, p.uid) !== -1;};
+    const not_inSelection = p=>{return _.indexOf(State.pointsByUid, p.uid) === -1;};
+
+    const flip = (point, axis, newUID) => {
+	return {
+	    x: (axis==='y'?-1:1) * point.x, // note that flip in y-axis means flip sign on x-coordinate. Confusing!!
+	    y: (axis==='x'?-1:1) * point.y,
+	    uid: newUID || point.uid
+	};
+    };
     
     return (
 	<Briefcase
@@ -32,8 +43,7 @@ function PointsSelection(props) {
 
 			// Create a new array of only non-selected points. Invoke rerender.
 			// non selected points will not be found in PointsSelectionpointsByUid
-			const keepPoint = p=>{return _.indexOf(State.pointsByUid, p.uid) === -1;};
-			const filteredPoints = _.filter(props.state.CreatePointset.points, keepPoint);
+			const filteredPoints = _.filter(props.state.CreatePointset.points, not_inSelection);
 
 			props.updateState({CreatePointset: {
 			    points: {$set: filteredPoints},
@@ -54,7 +64,34 @@ function PointsSelection(props) {
 		     onChange={ev=>{set({copy_xAxis: {$set: !State.copy_xAxis}});}} />
 		Create Copy
 	    </label>
-	    <button>
+	    <button
+	       onClick={()=>{
+
+		   var uidCount = props.state.CreatePointset.points_uidCount;
+		   var $pointsUpdater;
+		   var uidIncrement = 0;
+
+		   if(State.copy_xAxis){
+		       const extraPoints = State.pointsByUid.map( uid => {
+			   const point = _.find(props.state.CreatePointset.points, {uid});
+			   return flip(point, 'x', uidCount++);
+		       });
+		       $pointsUpdater = {$push: extraPoints};
+		       uidIncrement = State.pointsByUid.length;
+		   }else{
+		       const someFlippedPoints = _.map(props.state.CreatePointset.points, point => {
+			   return inSelection(point) ? flip(point, 'x') : point;
+		       });
+		       $pointsUpdater = {$set: someFlippedPoints};
+		   }
+
+		   props.updateState({CreatePointset: {
+		       points: $pointsUpdater,
+		       points_nRedraw: $FnInc,
+		       points_uidCount: cnt => {return cnt + uidIncrement;}
+		   }});
+	      }}
+	       >
 	      Go
 	    </button>
 	  </div>
