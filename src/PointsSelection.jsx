@@ -25,6 +25,54 @@ function PointsSelection(props) {
 	    uid: newUID || point.uid
 	};
     };
+
+    const translate = (point, shift, newUID) => {
+	return {
+	    x: shift.x + point.x,
+	    y: shift.y + point.y,
+	    uid: newUID || point.uid
+	};
+    };
+
+    
+    const hofHandleFlipTransCopy = (xom)=>{
+
+	// customise the handler. Use 'xom' parameter to look up the command, transform function, flag
+	const cust = _.find([
+	    {comm: 'x', trFn: flip,      cp_flag: "copy_xAxis" },
+	    {comm: 'y', trFn: flip,      cp_flag: "copy_yAxis" },
+	    {comm: 't', trFn: translate, cp_flag: "copy_translate"}
+	], {comm: xom});
+	const param = xom === 't' ? {x: State.translateX, y: State.translateY} : xom;
+
+	return ()=>{
+	    console.log("param: ", param);
+	    var uidCount = props.state.CreatePointset.points_uidCount;
+	    var $pointsUpdater;
+	    var uidIncrement = 0;
+
+	    if(State[cust.cp_flag]){
+		const extraPoints = State.pointsByUid.map( uid => {
+		    const point = _.find(props.state.CreatePointset.points, {uid});
+		    return cust.trFn(point, param, uidCount++);
+		});
+		$pointsUpdater = {$push: extraPoints};
+		uidIncrement = State.pointsByUid.length;
+	    }else{
+		const someFlippedPoints = _.map(props.state.CreatePointset.points, point => {
+		    return inSelection(point) ? cust.trFn(point, param) : point;
+		});
+		$pointsUpdater = {$set: someFlippedPoints};
+	    }
+
+	    props.updateState({CreatePointset: {
+		points: $pointsUpdater,
+		points_nRedraw: $FnInc,
+		points_uidCount: cnt => {return cnt + uidIncrement;}
+	    }});
+	};
+    };
+
     
     return (
 	<Briefcase
@@ -48,7 +96,6 @@ function PointsSelection(props) {
 			props.updateState({CreatePointset: {
 			    points: {$set: filteredPoints},
 			    points_nRedraw: $FnInc
-//			    points_uidCount: cnt => {return cnt+State.n*2;},
 			}});
 	      }}
 	      >
@@ -64,34 +111,7 @@ function PointsSelection(props) {
 		     onChange={ev=>{set({copy_xAxis: {$set: !State.copy_xAxis}});}} />
 		Create Copy
 	    </label>
-	    <button
-	       onClick={()=>{
-
-		   var uidCount = props.state.CreatePointset.points_uidCount;
-		   var $pointsUpdater;
-		   var uidIncrement = 0;
-
-		   if(State.copy_xAxis){
-		       const extraPoints = State.pointsByUid.map( uid => {
-			   const point = _.find(props.state.CreatePointset.points, {uid});
-			   return flip(point, 'x', uidCount++);
-		       });
-		       $pointsUpdater = {$push: extraPoints};
-		       uidIncrement = State.pointsByUid.length;
-		   }else{
-		       const someFlippedPoints = _.map(props.state.CreatePointset.points, point => {
-			   return inSelection(point) ? flip(point, 'x') : point;
-		       });
-		       $pointsUpdater = {$set: someFlippedPoints};
-		   }
-
-		   props.updateState({CreatePointset: {
-		       points: $pointsUpdater,
-		       points_nRedraw: $FnInc,
-		       points_uidCount: cnt => {return cnt + uidIncrement;}
-		   }});
-	      }}
-	       >
+	    <button onClick={hofHandleFlipTransCopy("x")}>
 	      Go
 	    </button>
 	  </div>
@@ -104,7 +124,7 @@ function PointsSelection(props) {
 		     onChange={ev=>{set({copy_yAxis: {$set: !State.copy_yAxis}});}} />
 	      Create Copy
 	    </label>
-	    <button>
+	    <button onClick={hofHandleFlipTransCopy("y")}>
 	      Go
 	    </button>
 	  </div>
@@ -119,7 +139,7 @@ function PointsSelection(props) {
 		       max={10}
 		       step={0.1}
 		       value={State.translateX}
-		       onChange={ev=>{set({translateX: {$set: ev.target.value}});}} />
+		       onChange={ev=>{set({translateX: {$set: Number(ev.target.value)}});}} />
 	      </label>
 	      <label>y:
 		<input type="number"
@@ -127,7 +147,7 @@ function PointsSelection(props) {
 		       max={10}
 		       step={0.1}
 		       value={State.translateY}
-		       onChange={ev=>{set({translateY: {$set: ev.target.value}});}} />
+		       onChange={ev=>{set({translateY: {$set: Number(ev.target.value)}});}} />
 	      </label>
 	    </div>
 
@@ -137,7 +157,7 @@ function PointsSelection(props) {
 		     onChange={ev=>{set({copy_translate: {$set: !State.copy_translate}});}} />
 	      Create Copy
 	    </label>
-	    <button>
+	    <button onClick={hofHandleFlipTransCopy("t")}>
 	      Go
 	    </button>
 	  </div>
